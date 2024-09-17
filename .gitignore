@@ -1,0 +1,13 @@
+/target/
+*.class
+.vscode/
+ConnectVariable.txt
+
+# NetBeans specific files
+/nbproject/private/
+/nbproject/Makefile-*
+/build/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
