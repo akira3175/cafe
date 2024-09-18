@@ -87,28 +87,22 @@ public class SanPhamBUS {
     }
 
     public void capNhatSoLuongSP(int ma, int soLuongMat) {
-        SanPham sp = getSanPham(ma + "");
-        sp.setSoLuong(sp.getSoLuong() + soLuongMat);
+//        SanPham sp = getSanPham(ma + "");
+//        sp.setSoLuong(sp.getSoLuong() + soLuongMat);
         spDAO.capNhatSoLuongSP(ma, soLuongMat);
     }
 
     public boolean themSanPham(String ten,
             String loai,
-            String soLuong,
-            String anh,
-            String donGia) {
-
+            String anh
+    ) {
         if (ten.trim().equals("")) {
             new Dialog("Tên SP không được để rỗng!", Dialog.ERROR_DIALOG);
             return false;
         }
-
         try {
             String[] loaiTmp = loai.split(" - ");
             int maLoai = Integer.parseInt(loaiTmp[0]);
-            int soLuongSP = Integer.parseInt(soLuong);
-            donGia = donGia.replace(",", "");
-            int donGiaSP = Integer.parseInt(donGia);
             if (maLoai == 0) {
                 new Dialog("Vui lòng chọn Loại sản phẩm!", Dialog.ERROR_DIALOG);
                 return false;
@@ -116,10 +110,11 @@ public class SanPhamBUS {
             SanPham sp = new SanPham();
             sp.setTenSP(ten);
             sp.setMaLoai(maLoai);
-            sp.setSoLuong(soLuongSP);
+            sp.setSoLuong(0);
             sp.setHinhAnh(anh);
-            sp.setDonGia(donGiaSP);
-
+            sp.setDonGia(0);
+            sp.setPhanTramLoi(0);
+            
             listSanPham.add(sp);
             if (spDAO.themSanPham(sp)) {
                 new Dialog("Thêm thành công!", Dialog.SUCCESS_DIALOG);
@@ -129,7 +124,7 @@ public class SanPhamBUS {
                 return false;
             }
         } catch (Exception e) {
-            new Dialog("Nhập số hợp lệ cho Đơn giá và Số lượng!", Dialog.ERROR_DIALOG);
+            e.printStackTrace();
         }
         return false;
     }
@@ -177,14 +172,18 @@ public class SanPhamBUS {
         new Dialog("Xoá thất bại!", Dialog.ERROR_DIALOG);
         return false;
     }
+    // kiem tra chuoi co phai so
+    public static boolean isNumeric(String str) {
+        return str.matches("-?\\d+(\\.\\d+)?");
+    }
 
     public boolean suaSanPham(String ma,
             String ten,
             String loai,
             String soLuong,
             String anh,
-            String donGia) {
-
+            String donGia,
+            String phanTramLoi) {
         try {
             if (ma.trim().equals("")) {
                 new Dialog("Chưa chọn sản phẩm để sửa!", Dialog.ERROR_DIALOG);
@@ -196,14 +195,24 @@ public class SanPhamBUS {
             int maLoai = Integer.parseInt(loaiTmp[0]);
             int soLuongSP = Integer.parseInt(soLuong);
             int donGiaSP = Integer.parseInt(donGia);
-
+            int phanTramLoiSP = 0;
+            if(isNumeric(phanTramLoi)) {
+                phanTramLoiSP = Integer.parseInt(phanTramLoi);
+            } else {
+                new Dialog("Phần trăm lời khong phai so!", Dialog.ERROR_DIALOG);
+                return false;
+            }
+            // check input hop le
             if (maLoai == 0) {
                 new Dialog("Vui lòng chọn Loại sản phẩm!", Dialog.ERROR_DIALOG);
                 return false;
             }
-
             if (ten.trim().equals("")) {
                 new Dialog("Tên SP không được để rỗng!", Dialog.ERROR_DIALOG);
+                return false;
+            }
+            if(phanTramLoiSP < 0 || phanTramLoiSP > 100) {
+                new Dialog("Phần trăm lời không hợp lệ!", Dialog.ERROR_DIALOG);
                 return false;
             }
 
@@ -213,6 +222,7 @@ public class SanPhamBUS {
             sp.setSoLuong(soLuongSP);
             sp.setHinhAnh(anh);
             sp.setDonGia(donGiaSP);
+            sp.setPhanTramLoi(phanTramLoiSP);
 
             if (spDAO.suaSanPham(sp)) {
                 new Dialog("Sửa thành công!", Dialog.SUCCESS_DIALOG);

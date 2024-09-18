@@ -974,7 +974,7 @@ public class PnQuanLyNhapHangGUI extends javax.swing.JPanel {
             }
         }
     }
-
+    // xử lý thêm sản phẩm vào hàng chờ 
     private void btnThemVaoGioActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnThemVaoGioActionPerformed
         int soLuong = 0;
         int donGia = 0;

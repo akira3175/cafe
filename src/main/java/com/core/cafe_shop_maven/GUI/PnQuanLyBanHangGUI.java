@@ -130,7 +130,7 @@ public class PnQuanLyBanHangGUI extends JPanel {
         dtmSanPhamBan = new DefaultTableModel();
         dtmSanPhamBan.addColumn("Mã SP");
         dtmSanPhamBan.addColumn("Tên SP");
-        dtmSanPhamBan.addColumn("Đơn giá");
+        dtmSanPhamBan.addColumn("Giá bán");
         dtmSanPhamBan.addColumn("Còn lại");
         dtmSanPhamBan.addColumn("Ảnh");
         tblBanHang = new Table(dtmSanPhamBan);
@@ -933,6 +933,7 @@ public class PnQuanLyBanHangGUI extends JPanel {
 
     DecimalFormat dcf = new DecimalFormat("###,###");
 
+    // Sửa lại giá bán theo phần trăm lời 
     private void loadDataTableSanPhamBan() {
         dtmSanPhamBan.setRowCount(0);
         ArrayList<SanPham> dssp = null;
@@ -950,15 +951,13 @@ public class PnQuanLyBanHangGUI extends JPanel {
         } else {
             dssp = spBUS.getListSanPham();
         }
-
+        
         for (SanPham sp : dssp) {
-            if (sp.getTrangThai() == 0) {
-                continue;
-            }
             Vector vec = new Vector();
             vec.add(sp.getMaSP());
             vec.add(sp.getTenSP());
-            vec.add(dcf.format(sp.getDonGia()));
+            int giaBan = sp.getDonGia() + ((sp.getDonGia() * sp.getPhanTramLoi())/100);
+            vec.add(dcf.format(giaBan));
             vec.add(dcf.format(sp.getSoLuong()));
             vec.add(sp.getHinhAnh());
             dtmSanPhamBan.addRow(vec);
