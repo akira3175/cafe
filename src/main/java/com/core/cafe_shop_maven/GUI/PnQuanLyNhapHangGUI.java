@@ -974,53 +974,51 @@ public class PnQuanLyNhapHangGUI extends javax.swing.JPanel {
             }
         }
     }
-    // xử lý thêm sản phẩm vào hàng chờ 
+    // Trung -> sửa xử lý thêm sản phẩm vào hàng chờ 
     private void btnThemVaoGioActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnThemVaoGioActionPerformed
         int soLuong = 0;
         int donGia = 0;
-        try {
+        if(PhieuNhapBUS.getInstance().checkInputSoLuongAndDonGiaNhap(txtSoLuong.getText(), txtDonGia.getText())) {
             soLuong = Integer.parseInt(txtSoLuong.getText());
             donGia = Integer.parseInt(txtDonGia.getText());
-        } catch (Exception e) {
-            new Dialog("Phải có số lượng và đơn giá nhập!", Dialog.ERROR_DIALOG);
+            int row = tblKho.getSelectedRow();
+            if (row > -1) {
+                String maSP = tblKho.getValueAt(row, 0) + "";
+                // check nếu thêm sản phẩm đã chọn thì cộng dồn số lượng lên
+                for (int i = 0; i < tblGioNhap.getRowCount(); i++) {
+                    if (maSP.equals(tblGioNhap.getValueAt(i, 0))) {
+                        int soLuongCu = Integer.parseInt(tblGioNhap.getValueAt(i, 2) + "");
+                        soLuong += soLuongCu;
+                        int thanhTien = soLuong * donGia;
+                        tblGioNhap.setValueAt(soLuong, i, 2);
+                        tblGioNhap.setValueAt(donGia, i, 3);
+                        tblGioNhap.setValueAt(thanhTien, i, 4);
+                        return;
+                    }
+                }
+                String tenSP = tblKho.getValueAt(row, 1) + "";
+                int thanhTien = soLuong * donGia;
+                Vector vec = new Vector();
+                vec.add(maSP);
+                vec.add(tenSP);
+                vec.add(soLuong);
+                vec.add(donGia);
+                vec.add(thanhTien);
+                dtmGioNhap.addRow(vec);
+            } else {
+                new Dialog("Chưa chọn sản phẩm để nhập!", Dialog.ERROR_DIALOG);
+            }
+        } else {
             return;
         }
-
-        int row = tblKho.getSelectedRow();
-        if (row > -1) {
-            String maSP = tblKho.getValueAt(row, 0) + "";
-            for (int i = 0; i < tblGioNhap.getRowCount(); i++) {
-                if (maSP.equals(tblGioNhap.getValueAt(i, 0))) {
-                    int soLuongCu = Integer.parseInt(tblGioNhap.getValueAt(i, 2) + "");
-                    soLuong += soLuongCu;
-                    int thanhTien = soLuong * donGia;
-                    tblGioNhap.setValueAt(soLuong, i, 2);
-                    tblGioNhap.setValueAt(donGia, i, 3);
-                    tblGioNhap.setValueAt(thanhTien, i, 4);
-                    return;
-                }
-            }
-            String tenSP = tblKho.getValueAt(row, 1) + "";
-            int thanhTien = soLuong * donGia;
-            Vector vec = new Vector();
-            vec.add(maSP);
-            vec.add(tenSP);
-            vec.add(soLuong);
-            vec.add(donGia);
-            vec.add(thanhTien);
-            dtmGioNhap.addRow(vec);
-        } else {
-            new Dialog("Chưa chọn sản phẩm để nhập!", Dialog.ERROR_DIALOG);
-        }
     }// GEN-LAST:event_btnThemVaoGioActionPerformed
-
+    // Trung -> sửa điều kiện else
     private void btnXoaKhoiGioActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnXoaKhoiGioActionPerformed
         int row = tblGioNhap.getSelectedRow();
-
         if (row > -1) {
             dtmGioNhap.removeRow(row);
         } else {
-            new Dialog("Chưa chọn sao xoá :)", Dialog.ERROR_DIALOG);
+            new Dialog("Chưa có sản phẩm để xóa!", Dialog.ERROR_DIALOG);
         }
     }// GEN-LAST:event_btnXoaKhoiGioActionPerformed
 
@@ -1050,16 +1048,16 @@ public class PnQuanLyNhapHangGUI extends javax.swing.JPanel {
         loadDataTableKho(txtTimKiem.getText());
     }// GEN-LAST:event_btnTimKiemActionPerformed
 
+    // Trung -> fix quy trinh nhap hang
     private void btnXacNhanActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnXacNhanActionPerformed
         int row = tblGioNhap.getRowCount();
         if (row < 1) {
-            new Dialog("Chưa có gì để nhập hết á!", Dialog.ERROR_DIALOG);
+            new Dialog("Vui lòng chọn sản phẩm nhập!", Dialog.ERROR_DIALOG);
             return;
         }
 
         String nhaCungCap = txtNhaCungCap.getText();
         String nhanVien = cmbNhanVien.getSelectedItem() + "";
-
         if (nhaCungCap.equals("")) {
             new Dialog("Hãy chọn nhà cung cấp!", Dialog.ERROR_DIALOG);
             return;

@@ -55,6 +55,7 @@ com\core\cafe_shop_maven\GUI\DlgQuanLyLoai$1.class
 com\core\cafe_shop_maven\BUS\DangNhapBUS.class
 com\core\cafe_shop_maven\GUI\PnQuanLyBanHangGUI$5.class
 com\core\cafe_shop_maven\GUI\XuatHoaDonGUI.class
+function\FuncTionCheckInput.class
 com\core\cafe_shop_maven\DAO\MyConnect.class
 com\core\cafe_shop_maven\GUI\PnQuanLyNhanVienGUI$16.class
 com\core\cafe_shop_maven\GUI\PnQuanLyNhanVienGUI$6.class
