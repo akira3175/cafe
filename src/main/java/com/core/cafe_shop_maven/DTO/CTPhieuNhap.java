@@ -6,6 +6,7 @@ public class CTPhieuNhap {
     private int soLuong;
     private int donGia;
     private int ThanhTien;
+    private String trangThai;
 
     public CTPhieuNhap() {
     }
@@ -16,6 +17,14 @@ public class CTPhieuNhap {
         this.soLuong = soLuong;
         this.donGia = donGia;
         ThanhTien = soLuong * donGia;
+    }
+
+    public String getTrangThai() {
+        return trangThai;
+    }
+
+    public void setTrangThai(String trangThai) {
+        this.trangThai = trangThai;
     }
 
     public int getMaPN() {

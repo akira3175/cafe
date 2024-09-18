@@ -2,10 +2,10 @@ package com.core.cafe_shop_maven.GUI;
 
 import com.core.cafe_shop_maven.BUS.LoaiBUS;
 import com.core.cafe_shop_maven.BUS.SanPhamBUS;
+import static com.core.cafe_shop_maven.Cafe_shop_maven.changLNF;
 import com.core.cafe_shop_maven.DTO.LoaiSP;
 import com.core.cafe_shop_maven.DTO.SanPham;
 
-import static com.core.cafe_shop_maven.Cafe_shop_maven.changLNF;
 
 import com.core.cafe_shop_maven.CustomFunctions.XuLyFileExcel;
 import com.core.cafe_shop_maven.CustomFunctions.Dialog;
@@ -22,9 +22,15 @@ import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
@@ -44,7 +50,7 @@ import javax.swing.table.TableColumnModel;
 
 public class PnQuanLySanPhamGUI extends JPanel {
 
-    public PnQuanLySanPhamGUI() {
+   public PnQuanLySanPhamGUI() {
         changLNF("Windows");
         addControlsSanPham();
         addEventsSanPham();
@@ -55,7 +61,7 @@ public class PnQuanLySanPhamGUI extends JPanel {
     final Color colorPanel = new Color(247, 247, 247);
     Table tblSanPham;
     DefaultTableModel dtmSanPham;
-    JTextField txtMa, txtTen, txtsoLuong, txtdonGia, txtTimKiem;
+    JTextField txtMa, txtTen, txtsoLuong, txtdonGia, txtPhanTramLoi, txtTimKiem;
     JComboBox<String> cmbLoai;
     JButton btnThem, btnSua, btnXoa, btnTim, btnChonAnh, btnReset, btnXuatExcel, btnNhapExcel;
     JLabel lblAnhSP;
@@ -85,22 +91,22 @@ public class PnQuanLySanPhamGUI extends JPanel {
         // ================PANEL INPUT=========
         JPanel pnTextField = new TransparentPanel();
         pnTextField.setLayout(new BoxLayout(pnTextField, BoxLayout.Y_AXIS));
-        JLabel lblMa, lblTen, lblLoai, lblSoLuong, lblDonViTinh, lblDonGia;
+        JLabel lblMa, lblTen, lblLoai, lblSoLuong, lblDonViTinh, lblDonGia, lblPhanTramLoi;
 
         lblMa = new JLabel("Mã SP");
         lblTen = new JLabel("Tên SP");
         lblLoai = new JLabel("Loại");
         lblSoLuong = new JLabel("Số lượng   ");
         lblDonGia = new JLabel("Đơn giá");
+        lblPhanTramLoi = new JLabel("Lời");
 
         txtMa = new JTextField(15);
         txtMa.setEditable(false);
         txtTen = new JTextField(15);
         cmbLoai = new JComboBox<String>();
         txtsoLuong = new JTextField(15);
-        txtsoLuong.setEditable(false);
         txtdonGia = new JTextField(15);
-        txtdonGia.setEditable(false);
+        txtPhanTramLoi = new JTextField(5);
 
         JPanel pnMa = new TransparentPanel();
         lblMa.setFont(font);
@@ -127,15 +133,21 @@ public class PnQuanLySanPhamGUI extends JPanel {
         JPanel pnSoLuong = new TransparentPanel();
         lblSoLuong.setFont(font);
         txtsoLuong.setFont(font);
+        txtsoLuong.setEditable(false);
         pnSoLuong.add(lblSoLuong);
         pnSoLuong.add(txtsoLuong);
         pnTextField.add(pnSoLuong);
 
         JPanel pnDonGia = new TransparentPanel();
         lblDonGia.setFont(font);
+        lblPhanTramLoi.setFont(font);
         txtdonGia.setFont(font);
+        txtdonGia.setEditable(false);
+        txtPhanTramLoi.setFont(font);
         pnDonGia.add(lblDonGia);
         pnDonGia.add(txtdonGia);
+        pnDonGia.add(lblPhanTramLoi);
+        pnDonGia.add(txtPhanTramLoi);
         pnTextField.add(pnDonGia);
 
         Dimension lblSize = lblSoLuong.getPreferredSize();
@@ -230,6 +242,7 @@ public class PnQuanLySanPhamGUI extends JPanel {
         dtmSanPham.addColumn("Tên SP");
         dtmSanPham.addColumn("Loại SP");
         dtmSanPham.addColumn("Đơn giá");
+        dtmSanPham.addColumn("Phần trăm lời");
         dtmSanPham.addColumn("Số lượng");
         dtmSanPham.addColumn("");
 
@@ -240,17 +253,19 @@ public class PnQuanLySanPhamGUI extends JPanel {
         tblSanPham.getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
         tblSanPham.getColumnModel().getColumn(3).setCellRenderer(centerRenderer);
         tblSanPham.getColumnModel().getColumn(4).setCellRenderer(centerRenderer);
+        tblSanPham.getColumnModel().getColumn(5).setCellRenderer(centerRenderer);
 
         TableColumnModel columnModelBanHang = tblSanPham.getColumnModel();
         columnModelBanHang.getColumn(0).setPreferredWidth(77);
         columnModelBanHang.getColumn(1).setPreferredWidth(282);
         columnModelBanHang.getColumn(2).setPreferredWidth(120);
         columnModelBanHang.getColumn(3).setPreferredWidth(85);
-        columnModelBanHang.getColumn(4).setPreferredWidth(138);
-
-        columnModelBanHang.getColumn(5).setMinWidth(0);
-        columnModelBanHang.getColumn(5).setMaxWidth(0);
-        columnModelBanHang.getColumn(5).setWidth(0);
+        columnModelBanHang.getColumn(4).setPreferredWidth(70);
+        columnModelBanHang.getColumn(5).setPreferredWidth(70);
+        
+        columnModelBanHang.getColumn(6).setMinWidth(0);
+        columnModelBanHang.getColumn(6).setMaxWidth(0);
+        columnModelBanHang.getColumn(6).setWidth(0);
 
         JScrollPane scrTblSanPham = new JScrollPane(tblSanPham);
         // </editor-fold>
@@ -329,7 +344,11 @@ public class PnQuanLySanPhamGUI extends JPanel {
         btnChonAnh.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                xuLyChonAnh();
+                try {
+                    xuLyChonAnh();
+                } catch (IOException ex) {
+                    Logger.getLogger(PnQuanLySanPhamGUI.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
 
@@ -400,13 +419,15 @@ public class PnQuanLySanPhamGUI extends JPanel {
             String ten = tblSanPham.getValueAt(row, 1) + "";
             String loai = tblSanPham.getValueAt(row, 2) + "";
             String donGia = tblSanPham.getValueAt(row, 3) + "";
-            String soLuong = tblSanPham.getValueAt(row, 4) + "";
-            String anh = tblSanPham.getValueAt(row, 5) + "";
+            String phanTramLoi = tblSanPham.getValueAt(row, 4) + "";
+            String soLuong = tblSanPham.getValueAt(row, 5) + "";
+            String anh = tblSanPham.getValueAt(row, 6) + "";
 
             txtMa.setText(ma);
             txtTen.setText(ten);
             txtdonGia.setText(donGia);
             txtsoLuong.setText(soLuong);
+            txtPhanTramLoi.setText(phanTramLoi);
 
             int flag = 0;
             for (int i = 0; i < cmbLoai.getItemCount(); i++) {
@@ -437,6 +458,7 @@ public class PnQuanLySanPhamGUI extends JPanel {
             String tenLoai = loaiBUS.getTenLoai(sp.getMaLoai());
             vec.add(tenLoai);
             vec.add(dcf.format(sp.getDonGia()));
+            vec.add(dcf.format(sp.getPhanTramLoi()));
             vec.add(dcf.format(sp.getSoLuong()));
             vec.add(sp.getHinhAnh());
             dtmSanPham.addRow(vec);
@@ -466,12 +488,10 @@ public class PnQuanLySanPhamGUI extends JPanel {
 
     private void xuLyThemSanPham() {
         String anh = fileAnhSP.getName();
-        System.out.println(fileAnhSP.getName());
+//        System.out.println(fileAnhSP.getName());
         boolean flag = spBUS.themSanPham(txtTen.getText(),
                 cmbLoai.getSelectedItem() + "",
-                txtsoLuong.getText(),
-                anh,
-                txtdonGia.getText());
+                anh);
         spBUS.docListSanPham();
         loadDataLenBangSanPham();
         luuFileAnh();
@@ -486,17 +506,14 @@ public class PnQuanLySanPhamGUI extends JPanel {
                 cmbLoai.getSelectedItem() + "",
                 txtsoLuong.getText(),
                 anh,
-                txtdonGia.getText());
+                txtdonGia.getText(),
+                txtPhanTramLoi.getText());
         spBUS.docListSanPham();
         loadDataLenBangSanPham();
         luuFileAnh();
     }
 
     private void xuLyXoaSanPham() {
-        if (!txtsoLuong.getText().equals("0")) {
-            Dialog dlg1 = new Dialog("Không thể xóa!", Dialog.ERROR_DIALOG);
-            return;
-        }
         Dialog dlg = new Dialog("Bạn có chắc chắn muốn xoá?", Dialog.WARNING_DIALOG);
         if (dlg.OK_OPTION == dlg.getAction()) {
             boolean flag = spBUS.xoaSanPham(txtMa.getText());
@@ -519,17 +536,29 @@ public class PnQuanLySanPhamGUI extends JPanel {
         }
     }
 
-    private void xuLyChonAnh() {
-        JFileChooser fileChooser = new FileChooser("src/main/resources/image/SanPham/");
+    private void xuLyChonAnh() throws IOException {
+        JFileChooser fileChooser = new JFileChooser("src/main/resources/image/SanPham/");
         FileNameExtensionFilter filter = new FileNameExtensionFilter(
-                "Tệp hình ảnh", "jpg", "png", "jpeg");
+                "Image Files", "jpg", "png", "jpeg");
         fileChooser.setFileFilter(filter);
+
         int returnVal = fileChooser.showOpenDialog(null);
 
         if (returnVal == JFileChooser.APPROVE_OPTION) {
             fileAnhSP = fileChooser.getSelectedFile();
+            saveImageIsSelected(fileChooser);
             lblAnhSP.setIcon(getAnhSP(fileAnhSP.getPath()));
         }
+    }
+    // luu file anh da chon
+    private void saveImageIsSelected(JFileChooser imageIsSelected) throws IOException {
+        // Đường dẫn lưu trữ (bạn có thể thay đổi cho phù hợp)
+        String saveDirectory = "src/main/resources/image/SanPham/";
+        File selectedFile = imageIsSelected.getSelectedFile();
+
+        // Sao chép tệp vào thư mục lưu trữ
+        Path destinationPath = Paths.get(saveDirectory, selectedFile.getName());
+        Files.copy(selectedFile.toPath(), destinationPath, StandardCopyOption.REPLACE_EXISTING);
     }
 
     private ImageIcon getAnhSP(String src) {

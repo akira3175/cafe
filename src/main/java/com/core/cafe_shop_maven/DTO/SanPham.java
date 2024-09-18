@@ -7,19 +7,21 @@ public class SanPham {
     private int soLuong;
     private String hinhAnh;
     private int donGia;
+    private int phanTramLoi;
     private int trangThai;
 
     public SanPham() {
 
     }
 
-    public SanPham(int maSP, String tenSP, int maLoai, int soLuong, String hinhAnh, int donGia) {
+    public SanPham(int maSP, String tenSP, int maLoai, int soLuong, String hinhAnh, int donGia, int phanTramLoi) {
         this.maSP = maSP;
         this.tenSP = tenSP;
         this.maLoai = maLoai;
         this.soLuong = soLuong;
         this.hinhAnh = hinhAnh;
         this.donGia = donGia;
+        this.phanTramLoi = phanTramLoi;
         trangThai = 1;
     }
 
@@ -71,6 +73,14 @@ public class SanPham {
         this.donGia = donGia;
     }
 
+    public int getPhanTramLoi() {
+        return phanTramLoi;
+    }
+
+    public void setPhanTramLoi(int phanTramLoi) {
+        this.phanTramLoi = phanTramLoi;
+    }
+    
     public int getTrangThai() {
         return trangThai;
     }

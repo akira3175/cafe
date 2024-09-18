@@ -28,24 +28,20 @@ public class SanPhamDAO {
             ArrayList<SanPham> dssp = new ArrayList<>();
             while (rs.next()) {
                 SanPham sp = new SanPham();
-
                 sp.setMaSP(rs.getInt(1));
                 sp.setTenSP(rs.getString(2));
-
                 sp.setSoLuong(rs.getInt(3));
                 sp.setDonGia(rs.getInt(4));
-
-                sp.setHinhAnh(rs.getString(5));
-                sp.setTrangThai(rs.getInt(6));
-
-                sp.setMaLoai(rs.getInt(7));
-
+                sp.setPhanTramLoi(rs.getInt(5));
+                sp.setHinhAnh(rs.getString(6));
+                sp.setTrangThai(rs.getInt(7));
+                sp.setMaLoai(rs.getInt(8));
                 dssp.add(sp);
             }
             return dssp;
         } catch (SQLException e) {
+            e.printStackTrace();
         }
-
         return null;
     }
 
@@ -57,18 +53,14 @@ public class SanPhamDAO {
             ResultSet rs = pre.executeQuery();
             if (rs.next()) {
                 SanPham sp = new SanPham();
-
                 sp.setMaSP(rs.getInt(1));
                 sp.setTenSP(rs.getString(2));
-
                 sp.setSoLuong(rs.getInt(3));
                 sp.setDonGia(rs.getInt(4));
-
-                sp.setHinhAnh(rs.getString(5));
-                sp.setTrangThai(rs.getInt(6));
-
-                sp.setMaLoai(rs.getInt(7));
-
+                sp.setPhanTramLoi(rs.getInt(5));
+                sp.setHinhAnh(rs.getString(6));
+                sp.setTrangThai(rs.getInt(7));
+                sp.setMaLoai(rs.getInt(8));
                 return sp;
             }
         } catch (SQLException e) {
@@ -131,24 +123,22 @@ public class SanPhamDAO {
             pre.setInt(1, sp.getSoLuong());
             pre.executeUpdate();
         } catch (SQLException e) {
+             e.printStackTrace();
         }
-
     }
 
     public boolean themSanPham(SanPham sp) {
         try {
-            String sql = "INSERT INTO sanpham(TenSP, SoLuong, DonGia, HinhAnh, TrangThai, loaiSanPham_MaLSP) "
-                    + "VALUES (?, ?, ?, ?, 1, ?)";
+            String sql = "INSERT INTO sanpham(TenSP, SoLuong, DonGia, phantramloi, HinhAnh, TrangThai, loaiSanPham_MaLSP) "
+                    + "VALUES (?, ?, ?, ?, ?, 1, ?)";
             PreparedStatement pre = MyConnect.conn.prepareStatement(sql);
 
             pre.setString(1, sp.getTenSP());
             pre.setInt(2, sp.getSoLuong());
-
             pre.setInt(3, sp.getDonGia());
-            pre.setString(4, sp.getHinhAnh());
-
-            pre.setInt(5, sp.getMaLoai());
-
+            pre.setInt(4, sp.getPhanTramLoi());
+            pre.setString(5, sp.getHinhAnh());          
+            pre.setInt(6, sp.getMaLoai());
             pre.execute();
             return true;
         } catch (SQLException e) {
@@ -208,7 +198,8 @@ public class SanPhamDAO {
                     + "DonGia=?, "
                     + "HinhAnh=?, "
                     + "TrangThai=?, "
-                    + "loaisanpham_MaLSP=? "
+                    + "loaisanpham_MaLSP=?, "
+                    + "phantramloi= ? "
                     + "WHERE MaSP=?";
             PreparedStatement pre = MyConnect.conn.prepareStatement(sql);
             System.out.println("sua san pham: " + sp.toString());
@@ -220,14 +211,14 @@ public class SanPhamDAO {
 
             pre.setInt(5, 1);
             pre.setInt(6, sp.getMaLoai());
-
-            pre.setInt(7, sp.getMaSP());
+            pre.setInt(7, sp.getPhanTramLoi());
+            pre.setInt(8, sp.getMaSP());
 
             pre.executeUpdate();
             return true;
         } catch (SQLException e) {
             e.printStackTrace();
+            return false;
         }
-        return false;
     }
 }

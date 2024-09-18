@@ -120,7 +120,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="pnTable" pref="808" max="32767" attributes="0"/>
+                  <Component id="pnTable" pref="809" max="32767" attributes="0"/>
                   <Component id="pnThongTin" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
@@ -142,7 +142,7 @@
                               <Component id="scrTblKho" max="32767" attributes="0"/>
                               <Group type="102" attributes="0">
                                   <Component id="jPanel3" min="-2" pref="647" max="-2" attributes="0"/>
-                                  <EmptySpace pref="18" max="32767" attributes="0"/>
+                                  <EmptySpace pref="24" max="32767" attributes="0"/>
                               </Group>
                               <Component id="scrTblGioNhap" alignment="0" max="32767" attributes="0"/>
                               <Component id="jPanel2" max="32767" attributes="0"/>
