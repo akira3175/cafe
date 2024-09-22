@@ -135,7 +135,7 @@ public class PhieuNhapBUS {
                     new Dialog("Số lượng nhập vào không hợp lệ!", Dialog.ERROR_DIALOG);
                     return false;
                 }
-                if(donGia <=0) {
+                if(donGia <=0 || donGia < 500) {
                     new Dialog("Đơn giá nhập vào không hợp lệ!", Dialog.ERROR_DIALOG);
                     return false;
                 }    
