@@ -142,6 +142,7 @@ public class SanPhamDAO {
             pre.execute();
             return true;
         } catch (SQLException e) {
+            System.out.println(">>> SanPhamDAO -> themSanPham -> " + e.getMessage());
         }
         return false;
     }

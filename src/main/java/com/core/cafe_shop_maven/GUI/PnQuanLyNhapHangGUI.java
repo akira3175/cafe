@@ -1,5 +1,6 @@
 package com.core.cafe_shop_maven.GUI;
 
+import com.core.cafe_shop_maven.BUS.CTHoaDonBUS;
 import com.core.cafe_shop_maven.BUS.DangNhapBUS;
 import com.core.cafe_shop_maven.BUS.NhanVienBUS;
 import com.core.cafe_shop_maven.BUS.SanPhamBUS;
@@ -10,6 +11,7 @@ import com.core.cafe_shop_maven.CustomFunctions.Dialog;
 import com.core.cafe_shop_maven.CustomFunctions.Table;
 import com.core.cafe_shop_maven.BUS.CTPhieuNhapBUS;
 import com.core.cafe_shop_maven.BUS.PhieuNhapBUS;
+import com.core.cafe_shop_maven.DTO.CTHoaDon;
 import com.core.cafe_shop_maven.DTO.PhieuNhap;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
@@ -866,7 +868,7 @@ public class PnQuanLyNhapHangGUI extends javax.swing.JPanel {
     // Trung -> add function tinhTongSoLuongTonKhoCuaSanPhamById()
     private int tinhTongSoLuongTonKhoCuaSanPhamById(int maSP) {
         int tongSoLuongDaNhap = CTPhieuNhapBUS.getInstance().getTongSoLuongNhapCuaSanPhamById(maSP);
-        int tongSoLuongDaBan = 0;
+        int tongSoLuongDaBan = CTHoaDonBUS.getInstance().getTongSoLuongBanCuaSanPhamById(maSP);
         return tongSoLuongDaNhap - tongSoLuongDaBan;
     }
 

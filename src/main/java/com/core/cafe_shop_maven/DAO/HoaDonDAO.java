@@ -43,10 +43,11 @@ public class HoaDonDAO {
 
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
+    // Trung -> fix loi sql
     public boolean addHoaDon(HoaDon hd) {
         boolean result = false;
         try {
-            String sql = "INSERT INTO hoadon(MaKH, MaNV, NgayLap, GioLap, TongTien, TrangThai) VALUES(?, ?, ?, ?, ?, 1)";
+            String sql = "INSERT INTO hoadon(MaKH, MaNV, NgayLap, GioLap, TongTien, MaKM, TrangThai) VALUES(?, ?, ?, ?, ?, ?, 1)";
             PreparedStatement prep = MyConnect.conn.prepareStatement(sql);
             prep.setInt(1, hd.getMaKH());
             prep.setInt(2, hd.getMaNV());
@@ -54,6 +55,7 @@ public class HoaDonDAO {
             prep.setString(3, sdf.format(date));
             prep.setString(4, sdf.format(date));
             prep.setInt(5, hd.getTongTien());
+            prep.setInt(6, hd.getMaKM());
             result = prep.executeUpdate() > 0;
         } catch (SQLException ex) {
             ex.printStackTrace();

@@ -350,7 +350,7 @@ public class XuatHoaDonGUI extends JDialog {
         xuLyHienThiHoaDon();
         btnInHoaDon.setEnabled(true);
 
-        hoadonBUS.luuHoaDon(DlgTimKhach.khachHangTimDuoc.getMaKH(), nhanVien, tongTien);
+        hoadonBUS.luuHoaDon(DlgTimKhach.khachHangTimDuoc.getMaKH(), DlgKM.kmTimDuoc.getMaKM(), nhanVien, tongTien);
 
         for (Vector vec : dsGioHang) {
             String maSP = vec.get(0) + "";
