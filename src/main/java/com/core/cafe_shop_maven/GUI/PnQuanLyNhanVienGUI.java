@@ -354,6 +354,7 @@ public class PnQuanLyNhanVienGUI extends JPanel {
             lblTabbedQuyen.setVisible(false);
         }
         loadDataTblNhanVien(null);
+        btnNhapExcel.setVisible(false);
         loadDataCmbQuyen();
         turnOffButtonSuaQuyen();
         turnOffButtonXoaQuyen();

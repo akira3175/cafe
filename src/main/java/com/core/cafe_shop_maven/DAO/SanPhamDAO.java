@@ -130,7 +130,7 @@ public class SanPhamDAO {
     public boolean themSanPham(SanPham sp) {
         try {
             String sql = "INSERT INTO sanpham(TenSP, SoLuong, DonGia, phantramloi, HinhAnh, TrangThai, loaiSanPham_MaLSP) "
-                    + "VALUES (?, ?, ?, ?, ?, 1, ?, 0)";
+                    + "VALUES (?, ?, ?, ?, ?, 1, ?)";
             PreparedStatement pre = MyConnect.conn.prepareStatement(sql);
 
             pre.setString(1, sp.getTenSP());
@@ -172,6 +172,7 @@ public class SanPhamDAO {
             pre.execute();
             return true;
         } catch (SQLException e) {
+            e.printStackTrace();
         }
         return false;
     }

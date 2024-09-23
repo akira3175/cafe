@@ -4,6 +4,7 @@ import com.core.cafe_shop_maven.BUS.CTHoaDonBUS;
 import com.core.cafe_shop_maven.BUS.DangNhapBUS;
 import com.core.cafe_shop_maven.BUS.NhanVienBUS;
 import com.core.cafe_shop_maven.BUS.SanPhamBUS;
+import com.core.cafe_shop_maven.DAO.NhanVienDAO;
 import com.core.cafe_shop_maven.DTO.CTPhieuNhap;
 import com.core.cafe_shop_maven.DTO.NhanVien;
 import com.core.cafe_shop_maven.DTO.SanPham;
@@ -897,7 +898,9 @@ public class PnQuanLyNhapHangGUI extends javax.swing.JPanel {
 
         for (int i = 0; i < cmbNhanVien.getItemCount(); i++) {
             String[] cmbValue = cmbNhanVien.getItemAt(i).split(" - ");
-            if (cmbValue[0].equals(DangNhapBUS.taiKhoanLogin.getMaTK() + "")) {
+            int maNV = Integer.parseInt(cmbValue[0]);
+            String maTK = NhanVienDAO.getInstance().getNhanVien(maNV).getMaTK() + "";
+            if (maTK.equals(DangNhapBUS.taiKhoanLogin.getMaTK() + "")) {
                 cmbNhanVien.setSelectedIndex(i);
                 break;
             }

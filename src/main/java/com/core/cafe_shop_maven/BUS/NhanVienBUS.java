@@ -54,6 +54,7 @@ public class NhanVienBUS {
         nv.setTen(ten);
         Date d;
         sdf = new SimpleDateFormat("dd/MM/yyyy");
+        sdf.setLenient(false);
         try {
             d = sdf.parse(ngaySinh);
             sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
