@@ -1061,7 +1061,8 @@ public class PnQuanLyBanHangGUI extends JPanel {
 
                 // cập nhật lại số lượng trong db
                 spBUS.capNhatSoLuongSP(key, -soLuong);
-                spBUS.docListSanPham();
+//                spBUS.docListSanPham();
+                spBUS.getListSanPham();
                 loadDataTableSanPhamBan();
                 return;
             }
@@ -1077,7 +1078,8 @@ public class PnQuanLyBanHangGUI extends JPanel {
         vec.add(dcf.format(soLuong * donGiaSP));
         // cập nhật lại số lượng trong db
         spBUS.capNhatSoLuongSP(key, -soLuong);
-        spBUS.docListSanPham();
+//        spBUS.docListSanPham();
+        spBUS.getListSanPham();
         loadDataTableSanPhamBan();
         dtmGioHang.addRow(vec);
     }

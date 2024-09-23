@@ -22,18 +22,54 @@ public class SanPhamBUS {
 
     private SanPhamBUS() {
         spDAO = SanPhamDAO.getInstance();
-        listSanPham = spDAO.getListSanPham();
+//        listSanPham = spDAO.getListSanPham();
+        this.getListSanPham();
     }
 
-    public void docListSanPham() {
-        listSanPham = spDAO.getListSanPham();
-    }
+//    public void docListSanPham() {
+//        listSanPham = spDAO.getListSanPham();
+//    }
 
+    // Trung -> fix quy trinh doc va kiem tra de cap nhat so luong va don gia cho san pham
     public ArrayList<SanPham> getListSanPham() {
-        if (listSanPham == null) {
-            docListSanPham();
+        listSanPham = spDAO.getListSanPham();  // Lấy danh sách sản phẩm từ DAO
+        // Sử dụng vòng lặp for thông thường để có thể cập nhật danh sách
+        for (int i = 0; i < listSanPham.size(); i++) {
+            SanPham sp = listSanPham.get(i);  // Lấy sản phẩm tại vị trí i
+            System.out.println(">>> maSP=" + sp.getMaSP() + " tenSP=" + sp.getTenSP() + " maPN=" + sp.getMaPN());
+            // Trường hợp sản phẩm mới dùng lô hàng đầu tiên
+            if (sp.getMaPN() == 0) {
+                Object res = CTPhieuNhapBUS.getInstance().updateSoLuongVaMaPNTiepTheo(sp.getMaSP(), sp.getMaPN(), sp.getSoLuong());
+                // Cập nhật số lượng và mã lô hàng đầu tiên nếu có
+                if (res instanceof SanPham) {
+                    SanPham temp = (SanPham) res;  // Gán giá trị mới cho sp
+                    // Cập nhật lại danh sách tại vị trí i
+                    sp.setSoLuong(temp.getSoLuong());
+                    sp.setDonGia(temp.getDonGia());
+                    sp.setMaPN(temp.getMaPN());
+                    this.handleThongTinSanPhamCuaLoTiepTheo(sp.getMaSP(), sp.getMaPN(), sp.getSoLuong(), sp.getDonGia());
+                } 
+            }
+            // Trường hợp sản phẩm đã dùng lô hàng nhưng đã hết số lượng
+            if (sp.getMaPN() != 0 && sp.getSoLuong() == 0) {
+                Object res = CTPhieuNhapBUS.getInstance().updateSoLuongVaMaPNTiepTheo(sp.getMaSP(), sp.getMaPN(), sp.getSoLuong());
+                // Cập nhật số lượng và mã lô hàng tiếp theo
+                if (res instanceof SanPham) {
+                    SanPham temp = (SanPham) res;  // Gán giá trị mới cho sp
+                    // Cập nhật lại danh sách tại vị trí i
+                    sp.setSoLuong(temp.getSoLuong());
+                    sp.setDonGia(temp.getDonGia());
+                    sp.setMaPN(temp.getMaPN());
+                    this.handleThongTinSanPhamCuaLoTiepTheo(sp.getMaSP(), sp.getMaPN(), sp.getSoLuong(), sp.getDonGia());
+                }
+            }
         }
-        return listSanPham;
+        return listSanPham;  // Trả về danh sách đã cập nhật
+    }
+    
+    // Trung -> add function cap nhat lai thong tin san pham cua lo moi
+    public boolean handleThongTinSanPhamCuaLoTiepTheo(int maSP, int maPN, int soLuong, int donGia) {    
+        return SanPhamDAO.getInstance().updateThongTinSanPhamLoTiepTheo(maSP, maPN, soLuong, donGia);
     }
 
     public SanPham getSanPham(String ma) {
@@ -244,5 +280,10 @@ public class SanPhamBUS {
             }
         }
         return "";
+    }
+    
+    // Trung -> add function
+    public String getMaSP() {
+        return SanPhamDAO.getInstance().getMaSanPhamMoi();
     }
 }

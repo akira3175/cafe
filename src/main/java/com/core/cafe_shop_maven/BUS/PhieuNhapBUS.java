@@ -3,6 +3,7 @@ package com.core.cafe_shop_maven.BUS;
 import com.core.cafe_shop_maven.CustomFunctions.Dialog;
 import com.core.cafe_shop_maven.DAO.PhieuNhapDAO;
 import com.core.cafe_shop_maven.DTO.PhieuNhap;
+import function.FuncTionCheckInput;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -123,4 +124,29 @@ public class PhieuNhapBUS {
         return null;
     }
 
+    // Trung -> add func check input soLuong Nhap and donGia Nhap
+    public boolean checkInputSoLuongAndDonGiaNhap(String soLuongInput, String donGiaInput) {
+        if(soLuongInput != null && donGiaInput != null) {
+            if(FuncTionCheckInput.getInstance().isNumeric(soLuongInput) && 
+                FuncTionCheckInput.getInstance().isNumeric(donGiaInput)) {
+                int soLuong = Integer.parseInt(soLuongInput);
+                int donGia = Integer.parseInt(donGiaInput);
+                if(soLuong <=0) {
+                    new Dialog("Số lượng nhập vào không hợp lệ!", Dialog.ERROR_DIALOG);
+                    return false;
+                }
+                if(donGia <=0 || donGia < 500) {
+                    new Dialog("Đơn giá nhập vào không hợp lệ!", Dialog.ERROR_DIALOG);
+                    return false;
+                }    
+                return true;
+            } else {
+                new Dialog("Số lượng hoặc đơn giá nhập vào không hợp lệ!", Dialog.ERROR_DIALOG);
+                return false;
+            }
+        } else {
+            new Dialog("Phải có số lượng và đơn giá nhập!", Dialog.ERROR_DIALOG);
+            return false;
+        }
+    }
 }
