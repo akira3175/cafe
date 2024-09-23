@@ -31,14 +31,14 @@ public class HoaDonBUS {
         return listHoaDon;
     }
 
-    public void luuHoaDon(int maKH, String nhanVien, int tongTien) {
+    public void luuHoaDon(int maKH, int maKM, String nhanVien, int tongTien) {
         HoaDon hd = new HoaDon();
         String[] arrNV = nhanVien.split(" - ");
         int maNV = Integer.parseInt(arrNV[0]);
         hd.setMaNV(maNV);
         hd.setMaKH(maKH);
         hd.setTongTien(tongTien);
-
+        hd.setMaKM(maKM);
         hoaDonDAO.addHoaDon(hd);
     }
 

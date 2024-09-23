@@ -9,12 +9,13 @@ public class SanPham {
     private int donGia;
     private int phanTramLoi;
     private int trangThai;
+    private int maPN;
 
     public SanPham() {
 
     }
 
-    public SanPham(int maSP, String tenSP, int maLoai, int soLuong, String hinhAnh, int donGia, int phanTramLoi) {
+    public SanPham(int maSP, String tenSP, int maLoai, int soLuong, String hinhAnh, int donGia, int phanTramLoi, int maPN) {
         this.maSP = maSP;
         this.tenSP = tenSP;
         this.maLoai = maLoai;
@@ -22,7 +23,8 @@ public class SanPham {
         this.hinhAnh = hinhAnh;
         this.donGia = donGia;
         this.phanTramLoi = phanTramLoi;
-        trangThai = 1;
+        this.trangThai = 1;
+        this.maPN = maPN;
     }
 
     public int getMaSP() {
@@ -92,4 +94,13 @@ public class SanPham {
     public String toString() {
         return String.format("Ten: %s, ma: %d, sl: %d", this.tenSP, this.maSP, this.soLuong);
     }
+    
+    public int getMaPN() {
+        return maPN;
+    }
+
+    public void setMaPN(int maPN) {
+        this.maPN = maPN;
+    }
+
 }

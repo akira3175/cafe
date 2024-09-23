@@ -61,4 +61,9 @@ public class CTHoaDonBUS {
 
         ctHDDAO.addCTHoaDon(cthd);
     }
+    
+    // Trung -> add function 
+    public int getTongSoLuongBanCuaSanPhamById(int maSP) {
+        return CTHoaDonDAO.getInstance().tongSoLuongBanCuaSanPhamById(maSP);
+    }
 }

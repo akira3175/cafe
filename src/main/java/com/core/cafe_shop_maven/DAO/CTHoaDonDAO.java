@@ -99,13 +99,12 @@ public class CTHoaDonDAO {
             prep.setInt(2, cthd.getSoLuong());
             prep.setInt(3, cthd.getMaHD());
             prep.setInt(4, cthd.getMaSP());
-
-            result = prep.executeUpdate() > 0;
-        } catch (SQLException ex) {
-            ex.printStackTrace();
+            prep.execute();
+            return true;
+        } catch (SQLException e) {
+            System.out.println(">>> CTHoaDonDAO -> addCTHoaDon -> " + e.getMessage());
             return false;
         }
-        return result;
     }
 
     public boolean updateCTHoaDon(int maHD, int maSP, CTHoaDon cthd) {
@@ -126,5 +125,21 @@ public class CTHoaDonDAO {
             return false;
         }
         return result;
+    }
+    
+    // Trung -> add function 
+    public int tongSoLuongBanCuaSanPhamById(int maSP) {
+        try {
+            String sql = "SELECT SUM(SoLuong) FROM chitiethoadon WHERE MaSP = ?";
+            PreparedStatement pst = MyConnect.conn.prepareStatement(sql);
+            pst.setInt(1, maSP);
+            ResultSet rs = pst.executeQuery();
+            if(rs.next())
+                return rs.getInt(1);
+            else return -1;
+        } catch (Exception e) {
+            System.out.println(">>> CTPhieuNhapDAO tinhSoLuongTonKhoCuaSanPhamById " + e);
+            return -1;
+        }
     }
 }
