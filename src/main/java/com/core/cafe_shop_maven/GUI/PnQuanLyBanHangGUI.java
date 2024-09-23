@@ -1,5 +1,6 @@
 package com.core.cafe_shop_maven.GUI;
 
+import com.core.cafe_shop_maven.DAO.NhanVienDAO;
 import com.core.cafe_shop_maven.DTO.LoaiSP;
 import com.core.cafe_shop_maven.DTO.HoaDon;
 import com.core.cafe_shop_maven.DTO.SanPham;
@@ -924,7 +925,9 @@ public class PnQuanLyBanHangGUI extends JPanel {
 
         for (int i = 0; i < cmbNhanVienBan.getItemCount(); i++) {
             String[] cmbValue = cmbNhanVienBan.getItemAt(i).split(" - ");
-            if (cmbValue[0].equals(DangNhapBUS.taiKhoanLogin.getMaTK() + "")) {
+            int maNV = Integer.parseInt(cmbValue[0]);
+            String maTK = NhanVienDAO.getInstance().getNhanVien(maNV).getMaTK() + "";
+            if (maTK.equals(DangNhapBUS.taiKhoanLogin.getMaTK() + "")) {
                 cmbNhanVienBan.setSelectedIndex(i);
                 break;
             }
@@ -1200,7 +1203,7 @@ public class PnQuanLyBanHangGUI extends JPanel {
             txtNgayLap.setText("Không xác định");
         }
         txtTongTien.setText(dcf.format(hd.getTongTien()));
-        txtMaKM.setText(hd.getMaKH() + "");
+        txtMaKM.setText(hd.getMaKM() + "");
 
         // Gọi hiển thị data trên tblCTHoaDon
         loadDataTblCTHoaDon(stMaHD[0]);
