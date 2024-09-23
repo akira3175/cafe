@@ -494,7 +494,7 @@ public class PnQuanLySanPhamGUI extends JPanel {
                 anh);
         // add maSP moi vao pricesanpham table
         String newMaSP = spBUS.getMaSP();
-        PriceSanPhamBUS.getInstance().addMaSanPhamWhenNewSanPhamIsAdded(newMaSP);
+        //PriceSanPhamBUS.getInstance().addMaSanPhamWhenNewSanPhamIsAdded(newMaSP);
         // cap nhat lai danh sach sanpham
 //        spBUS.docListSanPham();
         loadDataLenBangSanPham();
