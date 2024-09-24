@@ -257,6 +257,7 @@ public class PnQuanLyKhachHangGUI extends JPanel {
         khachHangBUS.docDanhSach();
         ArrayList<KhachHang> dskh = khachHangBUS.getListKhachHang();
         loadDataLenTableKhachHang(dskh);
+        turnOnTxtTen();
         turnOffButtonSua();
         turnOnButtonThem();
     }
@@ -283,6 +284,7 @@ public class PnQuanLyKhachHangGUI extends JPanel {
         }
         turnOnButtonSua();
         turnOffButtonThem();
+        turnOffTxtTen();
     }
 
     private void xuLyLiveSearch() {
