@@ -6,9 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="e1d42cc6-446f-4c45-bc5d-4e96df1bd6c2" name="Changes" comment="fix GioHang if have different about DonGia">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/cafe_shop_maven/GUI/PnQuanLyBanHangGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/cafe_shop_maven/GUI/PnQuanLyBanHangGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/cafe_shop_maven/GUI/PnQuanLySanPhamGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/cafe_shop_maven/GUI/PnQuanLySanPhamGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLySanPhamGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLySanPhamGUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/cafe_shop_maven/DAO/ThongKeDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/cafe_shop_maven/DAO/ThongKeDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyBanHangGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyBanHangGUI.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +96,7 @@
       <workItem from="1726627412183" duration="2247000" />
       <workItem from="1726636791998" duration="43000" />
       <workItem from="1727087910778" duration="8264000" />
-      <workItem from="1727160693872" duration="1771000" />
+      <workItem from="1727160693872" duration="2846000" />
     </task>
     <task id="LOCAL-00001" summary="Init">
       <option name="closed" value="true" />
@@ -123,7 +122,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727096185653</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="fix GioHang if have different about DonGia">
+      <option name="closed" value="true" />
+      <created>1727162596096</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1727162596096</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
