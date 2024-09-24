@@ -288,6 +288,7 @@ public class PnQuanLySanPhamGUI extends JPanel {
                 txtdonGia.setText("");
                 txtsoLuong.setText("");
                 cmbLoai.setSelectedIndex(0);
+                btnThem.setEnabled(true);
             }
         });
 
@@ -429,6 +430,8 @@ public class PnQuanLySanPhamGUI extends JPanel {
             txtdonGia.setText(donGia);
             txtsoLuong.setText(soLuong);
             txtPhanTramLoi.setText(phanTramLoi);
+
+            btnThem.setEnabled(false);
 
             int flag = 0;
             for (int i = 0; i < cmbLoai.getItemCount(); i++) {

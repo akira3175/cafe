@@ -27,7 +27,7 @@ public class MyConnect {
         pro.put("user", userName);
         pro.put("password", password);
         try {
-            com.mysql.jdbc.Driver driver = new Driver();
+            com.mysql.cj.jdbc.Driver driver = new Driver();
             conn = driver.connect(strConnect, pro);
         } catch (SQLException ex) {
             new Dialog("Không kết nối được tới CSDL!", Dialog.ERROR_DIALOG);
