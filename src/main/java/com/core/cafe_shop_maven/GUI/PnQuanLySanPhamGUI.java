@@ -492,6 +492,7 @@ public class PnQuanLySanPhamGUI extends JPanel {
         boolean flag = spBUS.themSanPham(txtTen.getText(),
                 cmbLoai.getSelectedItem() + "",
                 anh);
+        System.out.println(txtPhanTramLoi.getText());
         // add maSP moi vao pricesanpham table
         String newMaSP = spBUS.getMaSP();
         //PriceSanPhamBUS.getInstance().addMaSanPhamWhenNewSanPhamIsAdded(newMaSP);
