@@ -58,6 +58,8 @@ public class PnQuanLyBanHangGUI extends JPanel {
     DefaultTableModel dtmCTHoaDon;
     JButton btnReset, btnResetCTHoaDon, btnResetHoaDon;
 
+    private ArrayList<SanPham> dssp = null;
+
     public PnQuanLyBanHangGUI() {
         changLNF("Windows");
         addControlsBanHang();
@@ -936,10 +938,9 @@ public class PnQuanLyBanHangGUI extends JPanel {
 
     DecimalFormat dcf = new DecimalFormat("###,###");
 
-    // Sửa lại giá bán theo phần trăm lời 
+    // Trung -> Sửa lại giá bán theo phần trăm lời
     private void loadDataTableSanPhamBan() {
         dtmSanPhamBan.setRowCount(0);
-        ArrayList<SanPham> dssp = null;
 
         if (cmbLoaiSPBanHang.getItemCount() > 0) {
             String loai = cmbLoaiSPBanHang.getSelectedItem() + "";
@@ -954,7 +955,7 @@ public class PnQuanLyBanHangGUI extends JPanel {
         } else {
             dssp = spBUS.getListSanPham();
         }
-        
+
         for (SanPham sp : dssp) {
             Vector vec = new Vector();
             vec.add(sp.getMaSP());
@@ -1053,6 +1054,7 @@ public class PnQuanLyBanHangGUI extends JPanel {
         int key = Integer.parseInt(ma);
         for (int i = 0; i < tblGioHang.getRowCount(); i++) {
             int maTbl = Integer.parseInt(tblGioHang.getValueAt(i, 0) + "");
+            // check masp da chon chua
             if (maTbl == key) {
                 int soLuongAdd = Integer.parseInt(tblGioHang.getValueAt(i, 2) + "");
                 soLuongAdd += soLuong;
@@ -1064,7 +1066,6 @@ public class PnQuanLyBanHangGUI extends JPanel {
 
                 // cập nhật lại số lượng trong db
                 spBUS.capNhatSoLuongSP(key, -soLuong);
-//                spBUS.docListSanPham();
                 spBUS.getListSanPham();
                 loadDataTableSanPhamBan();
                 return;
@@ -1143,7 +1144,7 @@ public class PnQuanLyBanHangGUI extends JPanel {
     private void xuLyTimKiemTheoTen() {
         String ten = txtTenSPBanHang.getText().toLowerCase();
         dtmSanPhamBan.setRowCount(0);
-        ArrayList<SanPham> dssp = null;
+//        ArrayList<SanPham> dssp = null;
         dssp = spBUS.getSanPhamTheoTen(ten);
 
         for (SanPham sp : dssp) {

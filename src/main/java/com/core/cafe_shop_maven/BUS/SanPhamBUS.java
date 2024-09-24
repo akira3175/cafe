@@ -4,6 +4,7 @@ import com.core.cafe_shop_maven.DAO.SanPhamDAO;
 import com.core.cafe_shop_maven.DTO.SanPham;
 import com.core.cafe_shop_maven.CustomFunctions.Dialog;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class SanPhamBUS {
@@ -33,10 +34,15 @@ public class SanPhamBUS {
     // Trung -> fix quy trinh doc va kiem tra de cap nhat so luong va don gia cho san pham
     public ArrayList<SanPham> getListSanPham() {
         listSanPham = spDAO.getListSanPham();  // Lấy danh sách sản phẩm từ DAO
+        return listSanPham;  // Trả về danh sách đã cập nhật
+    }
+
+    // Trung -> add function
+    public void updateLoHangTiepTheo() {
+        ArrayList<SanPham> listSanPham = spDAO.getListSanPham();  // Lấy danh sách sản phẩm từ DAO
         // Sử dụng vòng lặp for thông thường để có thể cập nhật danh sách
         for (int i = 0; i < listSanPham.size(); i++) {
             SanPham sp = listSanPham.get(i);  // Lấy sản phẩm tại vị trí i
-            System.out.println(">>> maSP=" + sp.getMaSP() + " tenSP=" + sp.getTenSP() + " maPN=" + sp.getMaPN());
             // Trường hợp sản phẩm mới dùng lô hàng đầu tiên
             if (sp.getMaPN() == 0) {
                 Object res = CTPhieuNhapBUS.getInstance().updateSoLuongVaMaPNTiepTheo(sp.getMaSP(), sp.getMaPN(), sp.getSoLuong());
@@ -48,7 +54,7 @@ public class SanPhamBUS {
                     sp.setDonGia(temp.getDonGia());
                     sp.setMaPN(temp.getMaPN());
                     this.handleThongTinSanPhamCuaLoTiepTheo(sp.getMaSP(), sp.getMaPN(), sp.getSoLuong(), sp.getDonGia());
-                } 
+                }
             }
             // Trường hợp sản phẩm đã dùng lô hàng nhưng đã hết số lượng
             if (sp.getMaPN() != 0 && sp.getSoLuong() == 0) {
@@ -64,7 +70,6 @@ public class SanPhamBUS {
                 }
             }
         }
-        return listSanPham;  // Trả về danh sách đã cập nhật
     }
     
     // Trung -> add function cap nhat lai thong tin san pham cua lo moi

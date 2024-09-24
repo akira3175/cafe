@@ -2,6 +2,7 @@ package com.core.cafe_shop_maven.GUI;
 
 import com.core.cafe_shop_maven.BUS.CTHoaDonBUS;
 import com.core.cafe_shop_maven.BUS.HoaDonBUS;
+import com.core.cafe_shop_maven.BUS.SanPhamBUS;
 import com.core.cafe_shop_maven.CustomFunctions.Dialog;
 
 import java.awt.Image;
@@ -337,6 +338,7 @@ public class XuatHoaDonGUI extends JDialog {
 
     public static boolean checkBanHang = false;
 
+    // Trung -> add chuc nang cap nhat san pham
     private void btnThanhToanActionPerformed(java.awt.event.ActionEvent evt) {
         checkBanHang = false;
         if (txtTenKhach.getText().equals("")) {
@@ -362,6 +364,7 @@ public class XuatHoaDonGUI extends JDialog {
         btnThanhToan.setEnabled(false);
         btnTimKM.setEnabled(false);
         btnTimKhach.setEnabled(false);
+        SanPhamBUS.getInstance().updateLoHangTiepTheo();
         checkBanHang = true;
     }
 
