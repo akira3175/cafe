@@ -5,6 +5,7 @@ import com.core.cafe_shop_maven.DTO.SanPham;
 import com.core.cafe_shop_maven.CustomFunctions.Dialog;
 
 import java.lang.reflect.Array;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class SanPhamBUS {
@@ -204,6 +205,11 @@ public class SanPhamBUS {
         }
 
         int maSP = Integer.parseInt(ma);
+        // Check sp ton kho truoc khi xoa
+        if(spDAO.checkSanPhamTonKho(maSP)) {
+            new Dialog("Không thể xóa sản phẩm khi còn tồn kho!", Dialog.ERROR_DIALOG);
+            return false;
+        }
         listSanPham.removeIf(sp -> sp.getMaSP() == maSP);
         if (spDAO.xoaSanPham(maSP)) {
             new Dialog("Xoá thành công!", Dialog.SUCCESS_DIALOG);

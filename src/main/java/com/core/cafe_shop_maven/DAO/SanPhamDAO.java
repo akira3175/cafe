@@ -192,6 +192,23 @@ public class SanPhamDAO {
         return false;
     }
 
+    public boolean checkSanPhamTonKho(int maSP) {
+        String sql = "SELECT * FROM chitietphieunhap WHERE MaSP = ?";
+
+        try {
+            PreparedStatement pst = MyConnect.conn.prepareStatement(sql);
+            pst.setInt(1, maSP); // Set the maSP parameter (index 1)
+            ResultSet rs = pst.executeQuery(); // Execute the query
+            // Check if the result set contains any rows
+            if (rs.next()) {
+                return true; // Product exists in stock
+            }
+        } catch (SQLException e) {
+            e.printStackTrace(); // Log the exception details
+        }
+        return false; // Product does not exist in stock or an exception occurred
+    }
+
     public boolean suaSanPham(SanPham sp) {
         try {
             String sql = "UPDATE sanpham SET "
