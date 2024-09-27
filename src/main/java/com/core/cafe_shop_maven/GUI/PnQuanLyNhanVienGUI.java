@@ -798,7 +798,7 @@ public class PnQuanLyNhanVienGUI extends JPanel {
     }
 
     private void xuLyTimKiemNhanVien() {
-        if (txtTimNV.getText("")) {
+        if (txtTimNV.getText().equals("")) {
             new Dialog("Hãy nhập từ khóa tìm kiếm!", Dialog.ERROR_DIALOG);
             return;
         }
