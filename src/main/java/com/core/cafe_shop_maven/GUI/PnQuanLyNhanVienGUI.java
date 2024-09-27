@@ -798,9 +798,17 @@ public class PnQuanLyNhanVienGUI extends JPanel {
     }
 
     private void xuLyTimKiemNhanVien() {
+        if (txtTimNV.getText("")) {
+            new Dialog("Hãy nhập từ khóa tìm kiếm!", Dialog.ERROR_DIALOG);
+            return;
+        }
         ArrayList<NhanVien> dsnv = nhanVienBUS.timNhanVien(txtTimNV.getText());
         dtmNhanVien.setRowCount(0);
         loadDataTblNhanVien(dsnv);
+        if (dtmNhanVien.getColumnCount() == 0) {
+            new Dialog("Không tồn tại nhân viên này!", Dialog.ERROR_DIALOG);
+            return;
+        }
     }
 
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
