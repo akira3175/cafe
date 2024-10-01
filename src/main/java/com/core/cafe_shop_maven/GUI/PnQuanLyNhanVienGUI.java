@@ -575,7 +575,10 @@ public class PnQuanLyNhanVienGUI extends JPanel {
 
     private void xuLyThemQuyen() {
         String tenQuyen = JOptionPane.showInputDialog("Nhập tên quyền");
-
+        if (tenQuyen.equals("")) {
+            new Dialog("Tên quyền không được để trống!", Dialog.ERROR_DIALOG);
+            return;
+        }
         boolean flag = phanQuyenBUS.themQuyen(tenQuyen);
         if (flag) {
             loadDataCmbQuyen();

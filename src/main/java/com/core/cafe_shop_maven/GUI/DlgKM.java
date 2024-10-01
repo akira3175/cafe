@@ -110,6 +110,7 @@ public class DlgKM extends JDialog {
         txtTuKhoa.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                System.out.println(txtTuKhoa.getText());
                 loadDataLenTable(txtTuKhoa.getText());
             }
         });
@@ -204,7 +205,34 @@ public class DlgKM extends JDialog {
 
     private void loadDataLenTable(String tuKhoa) {
         TableColumnModel columnModelBanHang = tblMaGiam.getColumnModel();
+        dtmKM.setRowCount(0);
+        KhuyenMaiBUS.docDanhSach();
+        ArrayList<KhuyenMai> dskm = KhuyenMaiBUS.getDanhSachKhuyenMai();
+        Date ngayBDdt, ngayKTdt;
+        for (KhuyenMai km : dskm) {
+            Vector vec = new Vector();
+            vec.add(km.getMaKM());
+            vec.add(km.getTenKM());
+            vec.add(km.getPhanTramKM());
+            vec.add(dcf.format(km.getDieuKien()));
+            vec.add(km.getNgayBD());
+            vec.add(km.getNgayKT());
 
+            Date now = new Date();
+
+            try {
+                ngayBDdt = sdf.parse(km.getNgayBD());
+                ngayKTdt = sdf.parse(km.getNgayKT());
+                if (ngayBDdt.before(now) && ngayKTdt.after(now)) {
+                    vec.add("Còn hiệu lực");
+                } else {
+                    vec.add("Hết hiệu lực");
+                }
+            } catch (Exception ex) {
+                vec.add("Không xác định");
+            }
+            dtmKM.addRow(vec);
+        }
     }
 
 }
