@@ -912,7 +912,6 @@ public class PnQuanLyNhanVienGUI extends JPanel {
 
     private Boolean checkQuanLyTheoMa(int maTK) {
         String tenQuyen = taiKhoanBUS.getQuyenTheoMa(maTK+"");
-        System.out.println(tenQuyen);
         if (tenQuyen.equals("Quản lý")) {
             return true;
         }

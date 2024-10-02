@@ -206,7 +206,9 @@ public class DlgCapTaiKhoan extends javax.swing.JDialog {
                 phanQuyenBUS.docDanhSachQuyen();
                 ArrayList<PhanQuyen> dsq = phanQuyenBUS.getListQuyen();
                 for (PhanQuyen pq : dsq) {
-                        cmbQuyen.addItem(pq.getQuyen());
+                        if (!pq.getQuyen().equals("Quản trị")) {
+                                cmbQuyen.addItem(pq.getQuyen());
+                        }
                 }
         }
 

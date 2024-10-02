@@ -22,7 +22,7 @@ public class SanPhamDAO {
 
     public ArrayList<SanPham> getListSanPham() {
         try {
-            String sql = "SELECT * FROM sanpham";
+            String sql = "SELECT * FROM sanpham WHERE TrangThai = 1";
             PreparedStatement pre = MyConnect.conn.prepareStatement(sql);
             ResultSet rs = pre.executeQuery();
             ArrayList<SanPham> dssp = new ArrayList<>();

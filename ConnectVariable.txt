@@ -1,3 +1,4 @@
 localhost
 db_cafe
 root
+trung2205

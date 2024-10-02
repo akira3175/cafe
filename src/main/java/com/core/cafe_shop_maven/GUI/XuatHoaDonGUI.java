@@ -375,6 +375,7 @@ public class XuatHoaDonGUI extends JDialog {
                 this.dispose();
             }
         } catch (PrinterException ex) {
+            System.out.println("Không in được hóa đơn : " + ex);
         }
     }
 
