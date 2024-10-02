@@ -178,6 +178,8 @@ public class XuatPhieuNhapGUI extends javax.swing.JDialog {
             // ===================================================
             ctpn.setMaPN(maPN);
             ctPhieuNhapBUS.luuCTPhieuNhap(ctpn);
+            // cap nhat lai so luong san pham moi
+            SanPhamBUS.getInstance().updateLoHangTiepTheo();
         }
 
         hd += "<tr>";

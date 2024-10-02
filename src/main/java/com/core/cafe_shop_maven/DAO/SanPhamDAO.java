@@ -22,7 +22,7 @@ public class SanPhamDAO {
 
     public ArrayList<SanPham> getListSanPham() {
         try {
-            String sql = "SELECT * FROM sanpham";
+            String sql = "SELECT * FROM sanpham WHERE TrangThai = 1";
             PreparedStatement pre = MyConnect.conn.prepareStatement(sql);
             ResultSet rs = pre.executeQuery();
             ArrayList<SanPham> dssp = new ArrayList<>();
@@ -190,6 +190,23 @@ public class SanPhamDAO {
             e.printStackTrace();
         }
         return false;
+    }
+
+    public boolean checkSanPhamTonKho(int maSP) {
+        String sql = "SELECT * FROM chitietphieunhap WHERE MaSP = ?";
+
+        try {
+            PreparedStatement pst = MyConnect.conn.prepareStatement(sql);
+            pst.setInt(1, maSP); // Set the maSP parameter (index 1)
+            ResultSet rs = pst.executeQuery(); // Execute the query
+            // Check if the result set contains any rows
+            if (rs.next()) {
+                return true; // Product exists in stock
+            }
+        } catch (SQLException e) {
+            e.printStackTrace(); // Log the exception details
+        }
+        return false; // Product does not exist in stock or an exception occurred
     }
 
     public boolean suaSanPham(SanPham sp) {

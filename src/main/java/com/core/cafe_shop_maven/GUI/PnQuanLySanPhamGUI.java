@@ -145,6 +145,7 @@ public class PnQuanLySanPhamGUI extends JPanel {
         txtdonGia.setFont(font);
         txtdonGia.setEditable(false);
         txtPhanTramLoi.setFont(font);
+        txtMa.setEnabled(false);
         pnDonGia.add(lblDonGia);
         pnDonGia.add(txtdonGia);
         pnDonGia.add(lblPhanTramLoi);
@@ -289,6 +290,8 @@ public class PnQuanLySanPhamGUI extends JPanel {
                 txtsoLuong.setText("");
                 cmbLoai.setSelectedIndex(0);
                 btnThem.setEnabled(true);
+                txtPhanTramLoi.setEnabled(false);
+                txtPhanTramLoi.setText("0");
             }
         });
 
@@ -432,6 +435,7 @@ public class PnQuanLySanPhamGUI extends JPanel {
             txtPhanTramLoi.setText(phanTramLoi);
 
             btnThem.setEnabled(false);
+            txtPhanTramLoi.setEnabled(true);
 
             int flag = 0;
             for (int i = 0; i < cmbLoai.getItemCount(); i++) {
