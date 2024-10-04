@@ -238,6 +238,12 @@ public class PnQuanLyKhuyenMaiGUI extends JPanel {
                 xuLySuaKhuyenMai();
             }
         });
+        btnReset.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                resetTableKhuyenMai();
+            }
+        });
     }
 
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -305,6 +311,8 @@ public class PnQuanLyKhuyenMaiGUI extends JPanel {
                 e.printStackTrace();
             }
         }
+        turnOffBtnThem();
+        turnOnBtnSua();
     }
 
     private void xuLyThemKhuyenMai() {
@@ -319,5 +327,32 @@ public class PnQuanLyKhuyenMaiGUI extends JPanel {
                 txtDieuKien.getText(), sdf.format(dateBD.getDate()), sdf.format(dateKT.getDate()));
         if (flag)
             loadDataTblKhuyenMai();
+    }
+
+    private void resetTableKhuyenMai() {
+        txtMa.setText("");
+        txtTen.setText("");
+        txtDieuKien.setText("");
+        txtPhanTram.setText("");
+        dateBD.setDate(null);
+        dateKT.setDate(null);
+        turnOnBtnThem();
+        turnOffBtnSua();
+    }
+
+    private void turnOnBtnThem() {
+        btnThem.setEnabled(true);
+    }
+
+    private void turnOffBtnThem() {
+        btnThem.setEnabled(false);
+    }
+
+    private void turnOnBtnSua() {
+        btnSua.setEnabled(true);
+    }
+
+    private void turnOffBtnSua() {
+        btnSua.setEnabled(false);
     }
 }

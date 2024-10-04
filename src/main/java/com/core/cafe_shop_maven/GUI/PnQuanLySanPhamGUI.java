@@ -282,16 +282,7 @@ public class PnQuanLySanPhamGUI extends JPanel {
         btnReset.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                loadAnh("");
-                loadDataLenBangSanPham();
-                txtMa.setText("");
-                txtTen.setText("");
-                txtdonGia.setText("");
-                txtsoLuong.setText("");
-                cmbLoai.setSelectedIndex(0);
-                btnThem.setEnabled(true);
-                txtPhanTramLoi.setEnabled(false);
-                txtPhanTramLoi.setText("0");
+                resetTextBoxSanPham();
             }
         });
 
@@ -606,6 +597,9 @@ public class PnQuanLySanPhamGUI extends JPanel {
         dssp = spBUS.getSanPhamTheoTen(ten);
         DecimalFormat dcf = new DecimalFormat("###,###");
         for (SanPham sp : dssp) {
+            if (sp.getTrangThai() == 0) {
+                return;
+            }
             Vector vec = new Vector();
             vec.add(sp.getMaSP());
             vec.add(sp.getTenSP());
@@ -617,5 +611,18 @@ public class PnQuanLySanPhamGUI extends JPanel {
             dtmSanPham.addRow(vec);
         }
         Dialog dlg = new Dialog("Số kết quả tìm được: " + dssp.size(), Dialog.INFO_DIALOG);
+    }
+    private void resetTextBoxSanPham() {
+        System.out.println(2);
+        loadAnh("");
+        loadDataLenBangSanPham();
+        txtMa.setText("");
+        txtTen.setText("");
+        txtdonGia.setText("");
+        txtsoLuong.setText("");
+        cmbLoai.setSelectedIndex(0);
+        btnThem.setEnabled(true);
+        txtPhanTramLoi.setEnabled(false);
+        txtPhanTramLoi.setText("0");
     }
 }

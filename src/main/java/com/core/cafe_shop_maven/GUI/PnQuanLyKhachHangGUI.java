@@ -2,9 +2,7 @@ package com.core.cafe_shop_maven.GUI;
 
 import com.core.cafe_shop_maven.BUS.KhachHangBUS;
 import com.core.cafe_shop_maven.DTO.KhachHang;
-import com.core.cafe_shop_maven.CustomFunctions.Dialog;
-import com.core.cafe_shop_maven.CustomFunctions.Table;
-import com.core.cafe_shop_maven.CustomFunctions.TransparentPanel;
+import com.core.cafe_shop_maven.CustomFunctions.*;
 
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;

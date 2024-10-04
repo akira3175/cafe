@@ -1,8 +1,9 @@
 package com.core.cafe_shop_maven.BUS;
 
+import com.core.cafe_shop_maven.CustomFunctions.*;
 import com.core.cafe_shop_maven.DAO.KhachHangDAO;
 import com.core.cafe_shop_maven.DTO.KhachHang;
-import com.core.cafe_shop_maven.CustomFunctions.Dialog;
+import function.FuncTionCheckInput;
 
 import java.util.ArrayList;
 import java.util.Locale;
@@ -47,16 +48,19 @@ public class KhachHangBUS {
     }
 
     public boolean themKhachHang(String ten, String diaChi, String sdt) {
-        if (ten.trim().equals("")) {
-            new Dialog("Không được để trống tên!", Dialog.ERROR_DIALOG);
+        NameValidator nameValidator = new NameValidator(ten);
+        if (!nameValidator.isValid()) {
+            new Dialog(nameValidator.getMessage(), Dialog.ERROR_DIALOG);
             return false;
         }
-        if (diaChi.trim().equals("")) {
-            new Dialog("Không được để trống địa chỉ!", Dialog.ERROR_DIALOG);
+        AddressValidator addressValidator = new AddressValidator(diaChi);
+        if (!addressValidator.isValid()) {
+            new Dialog(addressValidator.getMessage(), Dialog.ERROR_DIALOG);
             return false;
         }
-        if (sdt.trim().equals("")) {
-            new Dialog("Không được để trống số điện thoại!", Dialog.ERROR_DIALOG);
+        PhoneNumberValidator phoneNumberValidator = new PhoneNumberValidator(sdt);
+        if (!phoneNumberValidator.isValid()) {
+            new Dialog(phoneNumberValidator.getMessage(), Dialog.ERROR_DIALOG);
             return false;
         }
         KhachHang kh = new KhachHang();
@@ -73,16 +77,19 @@ public class KhachHangBUS {
     }
 
     public boolean suaKhachHang(String ma, String ten, String diaChi, String sdt) {
-        if (ten.trim().equals("")) {
-            new Dialog("Không được để trống tên!", Dialog.ERROR_DIALOG);
+        NameValidator nameValidator = new NameValidator(ten);
+        if (!nameValidator.isValid()) {
+            new Dialog(nameValidator.getMessage(), Dialog.ERROR_DIALOG);
             return false;
         }
-        if (diaChi.trim().equals("")) {
-            new Dialog("Không được để trống địa chỉ!", Dialog.ERROR_DIALOG);
+        AddressValidator addressValidator = new AddressValidator(diaChi);
+        if (!addressValidator.isValid()) {
+            new Dialog(addressValidator.getMessage(), Dialog.ERROR_DIALOG);
             return false;
         }
-        if (sdt.trim().equals("")) {
-            new Dialog("Không được để trống số điện thoại!", Dialog.ERROR_DIALOG);
+        PhoneNumberValidator phoneNumberValidator = new PhoneNumberValidator(sdt);
+        if (!phoneNumberValidator.isValid()) {
+            new Dialog(phoneNumberValidator.getMessage(), Dialog.ERROR_DIALOG);
             return false;
         }
         KhachHang kh = new KhachHang();

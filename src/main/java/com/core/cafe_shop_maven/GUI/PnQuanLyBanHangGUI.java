@@ -631,6 +631,7 @@ public class PnQuanLyBanHangGUI extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 xuLyResetData();
+                resetSanPhamDangChon();
             }
         });
 
@@ -940,6 +941,8 @@ public class PnQuanLyBanHangGUI extends JPanel {
 
     // Trung -> Sửa lại giá bán theo phần trăm lời
     private void loadDataTableSanPhamBan() {
+        resetSanPhamDangChon();
+        xuLyResetData();
         dtmSanPhamBan.setRowCount(0);
 
         if (cmbLoaiSPBanHang.getItemCount() > 0) {
@@ -957,6 +960,9 @@ public class PnQuanLyBanHangGUI extends JPanel {
         }
 
         for (SanPham sp : dssp) {
+            if (sp.getTrangThai() == 0) {
+                continue;
+            }
             Vector vec = new Vector();
             vec.add(sp.getMaSP());
             vec.add(sp.getTenSP());
@@ -1044,10 +1050,7 @@ public class PnQuanLyBanHangGUI extends JPanel {
             return;
         }
 
-        txtMaSPBanHang.setText("");
-        txtTenSPBanHang.setText("");
-        txtDonGiaBanHang.setText("");
-        spnSoLuongBanHang.setValue(0);
+        resetSanPhamDangChon();
 
         if (ma.trim().equalsIgnoreCase(""))
             return;
@@ -1269,5 +1272,13 @@ public class PnQuanLyBanHangGUI extends JPanel {
     private void xuLyTimTheoKhoangGia() {
         ArrayList<HoaDon> listHoaDon = hoaDonBUS.getListHoaDonTheoGia(txtMinSearch.getText(), txtMaxSearch.getText());
         addDataListHoaDon(listHoaDon);
+    }
+
+    private void resetSanPhamDangChon() {
+        txtMaSPBanHang.setText("");
+        txtTenSPBanHang.setText("");
+        txtDonGiaBanHang.setText("");
+        spnSoLuongBanHang.setValue(0);
+
     }
 }
