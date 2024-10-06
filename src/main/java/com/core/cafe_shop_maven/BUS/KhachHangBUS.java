@@ -40,7 +40,7 @@ public class KhachHangBUS {
             String ten = kh.getTen().toLowerCase();
             String diaChi = kh.getDiaChi().toLowerCase();
             String sdt = kh.getSdt().toLowerCase();
-            if (ten.contains(tuKhoa) || diaChi.contains(tuKhoa) || sdt.contains(sdt)) {
+            if (ten.contains(tuKhoa) || diaChi.contains(tuKhoa) || sdt.contains(tuKhoa)) {
                 dskh.add(kh);
             }
         }

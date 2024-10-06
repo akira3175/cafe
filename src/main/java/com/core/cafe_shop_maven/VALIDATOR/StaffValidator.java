@@ -6,6 +6,11 @@ import com.core.cafe_shop_maven.CustomFunctions.PhoneNumberValidator;
 import com.core.cafe_shop_maven.DAO.*;
 import com.core.cafe_shop_maven.DTO.*;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
+
 public class StaffValidator {
     private final NhanVien nhanVien;
     private boolean isValid;
@@ -51,6 +56,12 @@ public class StaffValidator {
 
     private boolean validateForAdd() {
         if (!isNameValid()) {
+            return false;
+        }
+        if (!isDateValid()) {
+            return false;
+        }
+        if (!isOver18()) {
             return false;
         }
         if (!isAddressValid()) {
@@ -108,4 +119,38 @@ public class StaffValidator {
         }
         return isValid;
     }
+
+   private boolean isDateValid() {
+       SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+       sdf.setLenient(false);
+       try {
+           sdf.parse(nhanVien.getNgaySinh());
+           isValid = true;
+           message = "Ngày sinh đúng định dạng.";
+           String pattern = "\\d{2}/\\d{2}/\\d{4}";
+           if (!nhanVien.getNgaySinh().matches(pattern)) {
+               isValid = false;
+               message = "Ngày sinh không đúng định dạng!";
+           }
+       } catch (Exception ex) {
+           isValid = false;
+           message = "Ngày sinh không đúng định dạng!";
+       }
+       return isValid;
+   }
+
+   private boolean isOver18() {
+       LocalDate ngaySinhLocalDate = LocalDate.parse(nhanVien.getNgaySinh(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+       LocalDate ngayHienTai = LocalDate.now();
+       Period age = Period.between(ngaySinhLocalDate, ngayHienTai);
+       if (age.getYears() >= 18) {
+           isValid = true;
+           message = "Nhân viên đủ 18 tuổi.";
+       } else {
+           isValid = false;
+           message = "Nhân viên dưới 18 tuổi!";
+       }
+       System.out.println(age.getYears());
+       return isValid;
+   }
 }

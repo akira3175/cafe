@@ -44,6 +44,28 @@ public class KhuyenMaiDAO {
         return null;
     }
 
+    public KhuyenMai getKhuyenMai(int maKM) {
+        try {
+            String sql = "SELECT * FROM khuyenmai WHERE MaKM=?";
+            PreparedStatement ps = MyConnect.conn.prepareStatement(sql);
+            ps.setInt(1, maKM);
+            ResultSet rs = ps.executeQuery();
+            KhuyenMai km = new KhuyenMai();
+            while (rs.next()) {
+                km.setMaKM(rs.getInt(1));
+                km.setTenKM(rs.getString(2));
+                km.setDieuKien(rs.getInt(3));
+                km.setNgayBD(rs.getString(4));
+                km.setPhanTramKM(rs.getInt(5));
+                km.setNgayKT(rs.getString(6));
+            }
+            return km;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     public boolean themMaGiam(KhuyenMai km) {
         try {
             String sql = "INSERT INTO khuyenmai(TenKM, PhanTramKM, DieuKienKM, NgayBD, NgayKT, TrangThai) " +
@@ -76,6 +98,23 @@ public class KhuyenMaiDAO {
 
             pre.setInt(6, km.getMaKM());
             return pre.executeUpdate() > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public boolean tenMaCoTonTaiKhong(String tenKM) {
+        try {
+            String sql = "SELECT COUNT(*) FROM khuyenmai WHERE TenKM=?";
+            PreparedStatement ps = MyConnect.conn.prepareStatement(sql);
+            ps.setString(1, tenKM);
+            ResultSet rs = ps.executeQuery();
+            rs.next();
+            boolean exists = rs.getInt(1) > 0;
+            rs.close();
+            ps.close();
+            return exists;
         } catch (Exception e) {
             e.printStackTrace();
         }

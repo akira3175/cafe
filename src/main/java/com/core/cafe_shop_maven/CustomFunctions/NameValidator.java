@@ -28,7 +28,7 @@ public class NameValidator {
     }
 
     private boolean isHaveSpecialChacracterOrNumber() {
-        String regex = "^[a-zA-Z\\s]+$";
+        String regex = "^[a-zA-ZÀ-ỹ\\s]+$";
         return !name.matches(regex);
     }
 
