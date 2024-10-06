@@ -5,6 +5,7 @@
 package function;
 
 import com.core.cafe_shop_maven.BUS.PhieuNhapBUS;
+import com.core.cafe_shop_maven.CustomFunctions.Dialog;
 
 /**
  *
@@ -33,5 +34,26 @@ public class FuncTionCheckInput {
         } catch (NumberFormatException e) {
             return false;
         }
+    }
+
+    public boolean isNumberPhone(String soDienThoai) {
+        if (!isNumberHaveTenNumber(soDienThoai)) {
+            new Dialog("Số điện thoại không hợp lệ!", Dialog.ERROR_DIALOG);
+            return false;
+        }
+        if (isisNumberNotNull(soDienThoai)) {
+            new Dialog("Số điện thoại không được trống!", Dialog.ERROR_DIALOG);
+            return false;
+        }
+        return true;
+    }
+
+    public boolean isNumberHaveTenNumber(String soDienThoai) {
+        String regex = "^0\\d{9}$";
+        return soDienThoai.matches(regex);
+    }
+
+    public boolean isisNumberNotNull(String soDienThoai) {
+        return soDienThoai.isEmpty();
     }
 }

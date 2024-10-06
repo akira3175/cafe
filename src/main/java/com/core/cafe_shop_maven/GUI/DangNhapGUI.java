@@ -198,7 +198,7 @@ public class DangNhapGUI extends javax.swing.JFrame {
     }
 
     private void xuLyQuenMatKhau() {
-        new Dialog("Xin liên hệ Admin để giải quyết!", Dialog.INFO_DIALOG);
+        new Dialog("Xin liên hệ quản trị hay quản lý để giải quyết!", Dialog.INFO_DIALOG);
     }
 
     private void xuLyDangNhap() {

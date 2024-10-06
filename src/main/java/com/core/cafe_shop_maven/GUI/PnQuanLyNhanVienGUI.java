@@ -15,6 +15,7 @@ import com.core.cafe_shop_maven.DAO.NhanVienDAO;
 import com.core.cafe_shop_maven.DAO.PhanQuyenDAO;
 import com.core.cafe_shop_maven.DTO.NhanVien;
 import com.core.cafe_shop_maven.DTO.PhanQuyen;
+import com.core.cafe_shop_maven.VALIDATOR.StaffValidator;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
@@ -516,12 +517,7 @@ public class PnQuanLyNhanVienGUI extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 loadDataTblNhanVien(null);
-                txtMaNV.setText("");
-                txtTen.setText("");
-                txtNgaySinh.setText("");
-                txtSDT.setText("");
-                txtTimNV.setText("");
-                txtDiaChi.setText("");
+                resetDataForm();
             }
         });
     }
@@ -767,33 +763,38 @@ public class PnQuanLyNhanVienGUI extends JPanel {
     }
 
     private void xuLySuaNhanVien() {
-        if (txtDiaChi.getText().length() == 0) {
-            new Dialog("Hãy nhập địa chỉ!", Dialog.ERROR_DIALOG);
-            return;
-        }
         String ma = txtMaNV.getText();
         String ten = txtTen.getText();
         String ngaySinh = txtNgaySinh.getText();
         String diaChi = txtDiaChi.getText();
         String sdt = txtSDT.getText();
+        StaffValidator staffValidator = new StaffValidator(ma, ten, sdt, diaChi, ngaySinh);
+        if (!staffValidator.isCanEdit()) {
+            new Dialog(staffValidator.getMessage(), Dialog.ERROR_DIALOG);
+            return;
+        }
         if (nhanVienBUS.updateNhanVien(ma, ten, ngaySinh, diaChi, sdt)) {
             nhanVienBUS.docDanhSach();
             loadDataTblNhanVien(null);
+            resetDataForm();
         }
     }
 
     private void xuLyThemNhanVien() {
-        if (txtDiaChi.getText().length() == 0) {
-            new Dialog("Hãy nhập địa chỉ!", Dialog.ERROR_DIALOG);
-            return;
-        }
+        String maNV = txtMaNV.getText();
         String ten = txtTen.getText();
         String ngaySinh = txtNgaySinh.getText();
         String diaChi = txtDiaChi.getText();
         String sdt = txtSDT.getText();
+        StaffValidator staffValidator = new StaffValidator(maNV, ten, sdt, diaChi, ngaySinh);
+        if (!staffValidator.isCanAdd()) {
+            new Dialog(staffValidator.getMessage(), Dialog.ERROR_DIALOG);
+            return;
+        }
         if (nhanVienBUS.themNhanVien(ten, ngaySinh, diaChi, sdt)) {
             nhanVienBUS.docDanhSach();
             loadDataTblNhanVien(null);
+            resetDataForm();
         }
     }
 
@@ -895,6 +896,15 @@ public class PnQuanLyNhanVienGUI extends JPanel {
             return true;
         }
         return false;
+    }
+
+    private void resetDataForm() {
+        txtMaNV.setText("");
+        txtTen.setText("");
+        txtNgaySinh.setText("");
+        txtSDT.setText("");
+        txtTimNV.setText("");
+        txtDiaChi.setText("");
     }
 
     private Boolean checkMyself(int maTKsub) {

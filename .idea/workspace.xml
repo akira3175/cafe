@@ -4,141 +4,99 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e1d42cc6-446f-4c45-bc5d-4e96df1bd6c2" name="Changes" comment="fix display MaKM in HoaDon">
+    <list default="true" id="1510e773-c303-4c55-b9af-37d537c59a40" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/core/cafe_shop_maven/CustomFunctions/AddressValidator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/core/cafe_shop_maven/CustomFunctions/NameValidator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/core/cafe_shop_maven/CustomFunctions/PhoneNumberValidator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/core/cafe_shop_maven/VALIDATOR/StaffValidator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConnectVariable.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ConnectVariable.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/cafe_shop_maven/BUS/KhachHangBUS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/cafe_shop_maven/BUS/KhachHangBUS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/cafe_shop_maven/DAO/NhanVienDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/cafe_shop_maven/DAO/NhanVienDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/cafe_shop_maven/DAO/SanPhamDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/cafe_shop_maven/DAO/SanPhamDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/cafe_shop_maven/GUI/DangNhapGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/cafe_shop_maven/GUI/DangNhapGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/cafe_shop_maven/GUI/PnQuanLyBanHangGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/cafe_shop_maven/GUI/PnQuanLyBanHangGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/cafe_shop_maven/GUI/PnQuanLyKhachHangGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/cafe_shop_maven/GUI/PnQuanLyKhachHangGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/cafe_shop_maven/GUI/PnQuanLyKhuyenMaiGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/cafe_shop_maven/GUI/PnQuanLyKhuyenMaiGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/cafe_shop_maven/GUI/PnQuanLyNhanVienGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/cafe_shop_maven/GUI/PnQuanLyNhanVienGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/cafe_shop_maven/GUI/PnQuanLyNhapHangGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/cafe_shop_maven/GUI/PnQuanLyNhapHangGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/cafe_shop_maven/GUI/PnQuanLySanPhamGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/cafe_shop_maven/GUI/PnQuanLySanPhamGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/function/FuncTionCheckInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/function/FuncTionCheckInput.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/BUS/KhachHangBUS.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/BUS/KhachHangBUS.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/DAO/NhanVienDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/DAO/NhanVienDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/DAO/SanPhamDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/DAO/SanPhamDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/DangNhapGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/DangNhapGUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyBanHangGUI$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyBanHangGUI$10.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyBanHangGUI$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyBanHangGUI$11.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyBanHangGUI$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyBanHangGUI$12.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyBanHangGUI$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyBanHangGUI$13.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyBanHangGUI$14.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyBanHangGUI$14.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyBanHangGUI$15.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyBanHangGUI$15.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyBanHangGUI$16.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyBanHangGUI$16.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyBanHangGUI$17.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyBanHangGUI$17.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyBanHangGUI$18.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyBanHangGUI$18.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyBanHangGUI$19.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyBanHangGUI$19.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyBanHangGUI$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyBanHangGUI$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyBanHangGUI$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyBanHangGUI$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyBanHangGUI$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyBanHangGUI$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyBanHangGUI$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyBanHangGUI$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyBanHangGUI$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyBanHangGUI$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyBanHangGUI$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyBanHangGUI$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyBanHangGUI$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyBanHangGUI$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyBanHangGUI$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyBanHangGUI$9.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyBanHangGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyBanHangGUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyKhachHangGUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyKhachHangGUI$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyKhachHangGUI$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyKhachHangGUI$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyKhachHangGUI$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyKhachHangGUI$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyKhachHangGUI$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyKhachHangGUI$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyKhachHangGUI$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyKhachHangGUI$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyKhachHangGUI$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyKhachHangGUI$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyKhachHangGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyKhachHangGUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyKhuyenMaiGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyKhuyenMaiGUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyNhanVienGUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyNhanVienGUI$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyNhanVienGUI$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyNhanVienGUI$10.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyNhanVienGUI$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyNhanVienGUI$11.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyNhanVienGUI$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyNhanVienGUI$12.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyNhanVienGUI$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyNhanVienGUI$13.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyNhanVienGUI$14.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyNhanVienGUI$14.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyNhanVienGUI$15.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyNhanVienGUI$15.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyNhanVienGUI$16.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyNhanVienGUI$16.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyNhanVienGUI$17.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyNhanVienGUI$17.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyNhanVienGUI$18.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyNhanVienGUI$18.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyNhanVienGUI$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyNhanVienGUI$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyNhanVienGUI$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyNhanVienGUI$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyNhanVienGUI$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyNhanVienGUI$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyNhanVienGUI$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyNhanVienGUI$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyNhanVienGUI$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyNhanVienGUI$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyNhanVienGUI$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyNhanVienGUI$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyNhanVienGUI$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyNhanVienGUI$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyNhanVienGUI$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyNhanVienGUI$9.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyNhanVienGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyNhanVienGUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyNhapHangGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyNhapHangGUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLySanPhamGUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLySanPhamGUI$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLySanPhamGUI$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLySanPhamGUI$10.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLySanPhamGUI$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLySanPhamGUI$11.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLySanPhamGUI$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLySanPhamGUI$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLySanPhamGUI$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLySanPhamGUI$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLySanPhamGUI$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLySanPhamGUI$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLySanPhamGUI$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLySanPhamGUI$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLySanPhamGUI$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLySanPhamGUI$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLySanPhamGUI$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLySanPhamGUI$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLySanPhamGUI$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLySanPhamGUI$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLySanPhamGUI$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLySanPhamGUI$9.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLySanPhamGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLySanPhamGUI.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="Git.Rebase.Settings">
-    <option name="NEW_BASE" value="main" />
-  </component>
-  <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="main" />
-      </map>
-    </option>
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
-  </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 5
-}</component>
-  <component name="ProjectId" id="2m9BNZUBsnLb8zHpPihCv1Vl9Xg" />
-  <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showLibraryContents" value="true" />
-  </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.Cafe_shop_maven.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "416",
-    "git-widget-placeholder": "trung",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "A:/University/Test/Java_Test_Project/Project_Maven/cafe",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.0",
-    "vue.rearranger.settings.migration": "true"
+    "git-widget-placeholder": "Merging trung"
   }
 }]]></component>
-  <component name="RunManager">
-    <configuration name="Cafe_shop_maven" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.core.cafe_shop_maven.Cafe_shop_maven" />
-      <module name="cafe_shop_maven" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.core.cafe_shop_maven.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.Cafe_shop_maven" />
-      </list>
-    </recent_temporary>
-  </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="jdk-20.0.2-azul-20.0.2-3183f394aec4-4edb7f01" />
-        <option value="jdk-21.0.2-corretto-21.0.2-4caba194b151-51586f01" />
-        <option value="jdk-22-openjdk-22-4caba194b151-f504ca98" />
-      </set>
-    </attachedChunks>
-  </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="e1d42cc6-446f-4c45-bc5d-4e96df1bd6c2" name="Changes" comment="" />
-      <created>1726478871266</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1726478871266</updated>
-      <workItem from="1726478872315" duration="3355000" />
-      <workItem from="1726485152768" duration="337000" />
-      <workItem from="1726485615807" duration="18819000" />
-      <workItem from="1726554315491" duration="8419000" />
-      <workItem from="1726579380732" duration="5767000" />
-      <workItem from="1726623641061" duration="666000" />
-      <workItem from="1726627412183" duration="2247000" />
-      <workItem from="1726636791998" duration="43000" />
-      <workItem from="1727087910778" duration="5446000" />
-      <workItem from="1727184436144" duration="4088000" />
-      <workItem from="1727189957403" duration="1951000" />
-    </task>
-    <task id="LOCAL-00001" summary="Init">
-      <option name="closed" value="true" />
-      <created>1727088796565</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1727088796565</updated>
-    </task>
-    <task id="LOCAL-00002" summary="fix display MaKM in HoaDon">
-      <option name="closed" value="true" />
-      <created>1727090018580</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1727090018580</updated>
-    </task>
-    <option name="localTasksCounter" value="3" />
     <servers />
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="Init" />
-    <MESSAGE value="fix display MaKM in HoaDon" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix display MaKM in HoaDon" />
   </component>
 </project>

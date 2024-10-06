@@ -2,6 +2,7 @@ package com.core.cafe_shop_maven.DAO;
 
 import com.core.cafe_shop_maven.DTO.NhanVien;
 import com.core.cafe_shop_maven.CustomFunctions.Dialog;
+import com.core.cafe_shop_maven.VALIDATOR.StaffValidator;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -41,6 +42,7 @@ public class NhanVienDAO {
             }
             return dssv;
         } catch (SQLException e) {
+            e.printStackTrace();
         }
 
         return null;
@@ -180,7 +182,25 @@ public class NhanVienDAO {
             pre.setString(4, nv.getSdt());
             return true;
         } catch (SQLException ex) {
+            ex.printStackTrace();
         }
         return false;
+    }
+
+    public boolean kiemTraSoDienThoaiCoTonTaiKhong(String sdt) {
+        int soDienThoai = Integer.parseInt(sdt);
+        try {
+            String sql = "SELECT COUNT(*) FROM NhanVien WHERE SDT=?";
+            PreparedStatement pre = MyConnect.conn.prepareStatement(sql);
+            pre.setInt(1, soDienThoai);
+            ResultSet rs = pre.executeQuery();
+            rs.next();
+            if (rs.getInt(1) == 0) {
+                return false;
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return true;
     }
 }
