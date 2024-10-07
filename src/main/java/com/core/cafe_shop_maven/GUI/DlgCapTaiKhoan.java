@@ -4,6 +4,8 @@ import com.core.cafe_shop_maven.BUS.PhanQuyenBUS;
 import com.core.cafe_shop_maven.BUS.TaiKhoanBUS;
 import com.core.cafe_shop_maven.CustomFunctions.Dialog;
 import com.core.cafe_shop_maven.DTO.PhanQuyen;
+import com.core.cafe_shop_maven.VALIDATOR.UsernameValidator;
+
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.util.ArrayList;
@@ -22,7 +24,6 @@ public class DlgCapTaiKhoan extends javax.swing.JDialog {
                 this.setModal(true);
                 Image icon = Toolkit.getDefaultToolkit().getImage("src/main/resources/image/ManagerUI/icon-app.png");
                 this.setIconImage(icon);
-
                 txtMaNV.setText(maNV);
                 loadDataCmbQuyen();
                 getTenDangNhap(maNV);
@@ -188,13 +189,22 @@ public class DlgCapTaiKhoan extends javax.swing.JDialog {
         private PhanQuyenBUS phanQuyenBUS = PhanQuyenBUS.getInstance();
 
         private void btnTaoTaiKhoanActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnTaoTaiKhoanActionPerformed
+                UsernameValidator usernameValidator = new UsernameValidator(txtTenDangNhap.getText());
+                if (!usernameValidator.isValid()) {
+                        new Dialog(usernameValidator.getMessage(), Dialog.ERROR_DIALOG);
+                        return;
+                }
                 if (checkQuyenQuanLy(cmbQuyen.getSelectedItem() + "")) {
                         new Dialog("Chỉ quản trị mới được thêm quyền này", Dialog.ERROR_DIALOG);
                         return;
                 }
-                taiKhoanBUS.themTaiKhoan(txtMaNV.getText(),
+                boolean flag = taiKhoanBUS.themTaiKhoan(txtMaNV.getText(),
                                 txtTenDangNhap.getText(),
                                 (String) cmbQuyen.getSelectedItem());
+                if (flag) {
+                        txtTenDangNhap.setEditable(false);
+                        btnTaoTaiKhoan.setEnabled(false);
+                }
         }// GEN-LAST:event_btnTaoTaiKhoanActionPerformed
 
         private void txtTenDangNhapActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtTenDangNhapActionPerformed
