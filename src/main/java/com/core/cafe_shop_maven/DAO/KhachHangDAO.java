@@ -114,4 +114,38 @@ public class KhachHangDAO {
         }
         return result;
     }
+
+    public boolean kiemTraSoDienThoaiCoTonTaiKhong(String sdt) {
+        int soDienThoai = Integer.parseInt(sdt);
+        try {
+            String sql = "SELECT COUNT(*) FROM KhachHang WHERE SDT=?";
+            PreparedStatement pre = MyConnect.conn.prepareStatement(sql);
+            pre.setInt(1, soDienThoai);
+            ResultSet rs = pre.executeQuery();
+            rs.next();
+            if (rs.getInt(1) == 0) {
+                return false;
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return true;
+    }
+
+    public boolean kiemTraKhachHangCoHoaDonKhong(String maKH) {
+        int maKHInt = Integer.parseInt(maKH);
+        try {
+            String sql = "SELECT COUNT(*) FROM HoaDon WHERE MaKH=?";
+            PreparedStatement pre = MyConnect.conn.prepareStatement(sql);
+            pre.setInt(1, maKHInt);
+            ResultSet rs = pre.executeQuery();
+            rs.next();
+            if (rs.getInt(1) == 0) {
+                return false;
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return true;
+    }
 }

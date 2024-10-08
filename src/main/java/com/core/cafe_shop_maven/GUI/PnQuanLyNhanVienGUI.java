@@ -781,7 +781,7 @@ public class PnQuanLyNhanVienGUI extends JPanel {
     }
 
     private void xuLyThemNhanVien() {
-        String maNV = txtMaNV.getText();
+        String maNV = "0";
         String ten = txtTen.getText();
         String ngaySinh = txtNgaySinh.getText();
         String diaChi = txtDiaChi.getText();

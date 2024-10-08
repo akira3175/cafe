@@ -1,10 +1,12 @@
 package com.core.cafe_shop_maven.GUI;
 
 import com.core.cafe_shop_maven.BUS.KhuyenMaiBUS;
+import com.core.cafe_shop_maven.CustomFunctions.Dialog;
 import com.core.cafe_shop_maven.DTO.KhuyenMai;
 import com.core.cafe_shop_maven.Cafe_shop_maven;
 import com.core.cafe_shop_maven.CustomFunctions.Table;
 import com.core.cafe_shop_maven.CustomFunctions.TransparentPanel;
+import com.core.cafe_shop_maven.VALIDATOR.PromotionValidator;
 import com.toedter.calendar.JDateChooser;
 
 import javax.swing.*;
@@ -316,6 +318,12 @@ public class PnQuanLyKhuyenMaiGUI extends JPanel {
     }
 
     private void xuLyThemKhuyenMai() {
+        PromotionValidator promotionValidator = new PromotionValidator("0", txtTen.getText(), txtPhanTram.getText(),
+                txtDieuKien.getText(), sdf.format(dateBD.getDate()), sdf.format(dateKT.getDate()));
+        if (!promotionValidator.isCanAdd()) {
+            new Dialog(promotionValidator.getMessage(), Dialog.ERROR_DIALOG);
+            return;
+        }
         boolean flag = KhuyenMaiBUS.themKhuyenMai(txtTen.getText(), txtPhanTram.getText(), txtDieuKien.getText(),
                 sdf.format(dateBD.getDate()), sdf.format(dateKT.getDate()));
         if (flag)
@@ -323,6 +331,12 @@ public class PnQuanLyKhuyenMaiGUI extends JPanel {
     }
 
     private void xuLySuaKhuyenMai() {
+        PromotionValidator promotionValidator = new PromotionValidator(txtMa.getText(), txtTen.getText(), txtPhanTram.getText(),
+                txtDieuKien.getText(), sdf.format(dateBD.getDate()), sdf.format(dateKT.getDate()));
+        if (!promotionValidator.isCanEdit()) {
+            new Dialog(promotionValidator.getMessage(), Dialog.ERROR_DIALOG);
+            return;
+        }
         boolean flag = KhuyenMaiBUS.suaKhuyenMai(txtMa.getText(), txtTen.getText(), txtPhanTram.getText(),
                 txtDieuKien.getText(), sdf.format(dateBD.getDate()), sdf.format(dateKT.getDate()));
         if (flag)

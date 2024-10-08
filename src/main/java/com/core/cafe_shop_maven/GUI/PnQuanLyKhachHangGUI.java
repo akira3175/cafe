@@ -1,8 +1,10 @@
 package com.core.cafe_shop_maven.GUI;
 
 import com.core.cafe_shop_maven.BUS.KhachHangBUS;
+import com.core.cafe_shop_maven.CustomFunctions.Dialog;
 import com.core.cafe_shop_maven.DTO.KhachHang;
 import com.core.cafe_shop_maven.CustomFunctions.*;
+import com.core.cafe_shop_maven.VALIDATOR.CustomerValidator;
 
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;
@@ -291,16 +293,31 @@ public class PnQuanLyKhachHangGUI extends JPanel {
     }
 
     private void xuLyThemKhachHang() {
+        CustomerValidator customerValidator = new CustomerValidator("0", txtTen.getText(), txtDiaChi.getText(), txtSDT.getText());
+        if (!customerValidator.isCanAdd()) {
+            new Dialog(customerValidator.getMessage(), Dialog.ERROR_DIALOG);
+            return;
+        }
         if (khachHangBUS.themKhachHang(txtTen.getText(), txtDiaChi.getText(), txtSDT.getText()))
             btnReset.doClick();
     }
 
     private void xuLySuaKhachHang() {
+        CustomerValidator customerValidator = new CustomerValidator(txtMa.getText(), txtTen.getText(), txtDiaChi.getText(), txtSDT.getText());
+        if (!customerValidator.isCanEdit()) {
+            new Dialog(customerValidator.getMessage(), Dialog.ERROR_DIALOG);
+            return;
+        }
         if (khachHangBUS.suaKhachHang(txtMa.getText(), txtTen.getText(), txtDiaChi.getText(), txtSDT.getText()))
             btnReset.doClick();
     }
 
     private void xuLyXoaKhachHang() {
+        CustomerValidator customerValidator = new CustomerValidator(txtMa.getText(), "", "", "");
+        if (!customerValidator.isCanDelete()) {
+            new Dialog(customerValidator.getMessage(), Dialog.ERROR_DIALOG);
+            return;
+        }
         if (khachHangBUS.xoaKhachHang(txtMa.getText()))
             btnReset.doClick();
     }
