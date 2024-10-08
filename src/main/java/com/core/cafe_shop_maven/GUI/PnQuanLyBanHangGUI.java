@@ -1071,14 +1071,15 @@ public class PnQuanLyBanHangGUI extends JPanel {
     }
 
     private void xuLyThemVaoGioHang() {
-        int row = tblBanHang.getSelectedRow();
-        if (row < 0) {
-            return;
-        }
-
         String ma = txtMaSPBanHang.getText();
         String ten = txtTenSPBanHang.getText();
         String donGia = txtDonGiaBanHang.getText();
+
+        if (ma.isEmpty()) {
+            new Dialog("Chưa chọn sản phẩm!", Dialog.ERROR_DIALOG);
+            return;
+        }
+
         int soLuong = Integer.parseInt(spnSoLuongBanHang.getValue() + "");
         int soLuongConLai = Integer.parseInt(tblBanHang.getValueAt(tblBanHang.getSelectedRow(), 3) + "");
 
@@ -1136,6 +1137,8 @@ public class PnQuanLyBanHangGUI extends JPanel {
             spBUS.capNhatSoLuongSP(ma, soLuong);
             loadDataTableSanPhamBan();
             dtmGioHang.removeRow(row);
+        } else {
+            new Dialog("Chưa chọn sản phẩm!", Dialog.ERROR_DIALOG);
         }
     }
 
@@ -1151,8 +1154,10 @@ public class PnQuanLyBanHangGUI extends JPanel {
     private void xuLyXuatHoaDonBanHang() {
         ArrayList<Vector> dsGioHang = new ArrayList<>();
         int row = tblGioHang.getRowCount();
-        if (row == 0)
+        if (row == 0) {
+            new Dialog("Giỏ hàng trống!", Dialog.ERROR_DIALOG);
             return;
+        }
         int tongTien = 0;
         for (int i = 0; i < row; i++) {
             Vector vec = new Vector();
@@ -1198,13 +1203,14 @@ public class PnQuanLyBanHangGUI extends JPanel {
         }
     }
 
-    public void xuLyThoat() {
+    public boolean xuLyThoat() {
         int row = tblGioHang.getRowCount();
         if (row > 0) {
             for (int i = 0; i < row; i++) {
                 xuLyXoaSPGioHang(i);
             }
         }
+        return true;
     }
 
     private void loadDataListHoaDon() {
