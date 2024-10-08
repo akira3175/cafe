@@ -4,6 +4,7 @@ import com.core.cafe_shop_maven.DTO.KhuyenMai;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
@@ -80,5 +81,26 @@ public class KhuyenMaiDAO {
             e.printStackTrace();
         }
         return false;
+    }
+
+    public KhuyenMai getKhuyenMaiHopLe(int tongTien) {
+        KhuyenMai km = null; // Khởi tạo biến km bên ngoài try-catch
+        try {
+            System.out.println(">>> TongTien = " + tongTien);
+            String sql = "SELECT MaKM, TenKM, MAX(PhanTramKM) FROM khuyenmai WHERE ? >= DieuKienKM GROUP BY MaKM, TenKM ORDER BY PhanTramKM DESC LIMIT 1";
+            PreparedStatement pst = MyConnect.conn.prepareStatement(sql);
+            pst.setInt(1, tongTien);
+            ResultSet rs = pst.executeQuery(); // Chỉ gọi executeQuery() không cần tham số sql
+
+            if (rs.next()) { // Chỉ cần kiểm tra một lần
+                km = new KhuyenMai();
+                km.setMaKM(rs.getInt(1));
+                km.setTenKM(rs.getString(2));
+                km.setPhanTramKM(rs.getInt(3));
+            }
+        } catch (Exception error) {
+            System.out.println(">>> KhuyenMaiDAO -> getKhuyenMaiHopLe = " + error);
+        }
+        return km;
     }
 }

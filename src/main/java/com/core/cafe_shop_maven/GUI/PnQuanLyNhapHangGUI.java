@@ -1038,7 +1038,7 @@ public class PnQuanLyNhapHangGUI extends javax.swing.JPanel {
             txtMaSP.setText(maSP);
             txtTenSP.setText(tenSP);
         }
-        txtDonGia.setText("1");
+        txtDonGia.setText("500");
         txtSoLuong.setText("1");
         tblGioNhap.clearSelection();
     }// GEN-LAST:event_tblKhoMouseClicked

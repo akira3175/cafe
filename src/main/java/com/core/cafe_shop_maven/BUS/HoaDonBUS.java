@@ -59,6 +59,12 @@ public class HoaDonBUS {
         try {
             int minPrice = Integer.parseInt(min);
             int maxPrice = Integer.parseInt(max);
+
+            if(minPrice > maxPrice) {
+                new Dialog("Giá min phải bé hơn giá max", Dialog.ERROR_DIALOG);
+                return null;
+            }
+
             ArrayList<HoaDon> dshd = new ArrayList<>();
             for (HoaDon hd : listHoaDon) {
                 if (hd.getTongTien() > minPrice && hd.getTongTien() < maxPrice)
@@ -77,6 +83,11 @@ public class HoaDonBUS {
             Date minDate = sdf.parse(min);
             Date maxDate = sdf.parse(max);
 
+            if(minDate.after(maxDate)) {
+                new Dialog("Ngày nhập min phải nhỏ hơn hoặc bằng ngày nhập max", Dialog.ERROR_DIALOG);
+                return null;
+            }
+
             sdf = new SimpleDateFormat("yyyy-MM-dd");
 
             min = sdf.format(minDate) + " 00:00:00";
@@ -86,6 +97,49 @@ public class HoaDonBUS {
             return dshd;
         } catch (Exception e) {
             new Dialog("Hãy nhập khoảng ngày hợp lệ theo định dạng dd/MM/yyyy!", Dialog.ERROR_DIALOG);
+        }
+        return null;
+    }
+
+    public ArrayList<HoaDon> getListHoaDonTheoDonGiaVaNgay(String minDG, String maxDG, String minNgay, String maxNgay) {
+        try {
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+            Date minDate = sdf.parse(minNgay);
+            Date maxDate = sdf.parse(maxNgay);
+
+            int minPrice = Integer.parseInt(minDG);
+            int maxPrice = Integer.parseInt(maxDG);
+
+            if(minPrice > maxPrice) {
+                new Dialog("Giá min phải bé hơn giá max", Dialog.ERROR_DIALOG);
+                return null;
+            }
+
+            if(minDate.after(maxDate)) {
+                new Dialog("Ngày nhập min phải nhỏ hơn hoặc bằng ngày nhập max", Dialog.ERROR_DIALOG);
+                return null;
+            }
+
+            if(minDate.after(maxDate)) {
+                new Dialog("Ngày nhập min phải nhỏ hơn hoặc bằng ngày nhập max", Dialog.ERROR_DIALOG);
+                return null;
+            }
+
+            sdf = new SimpleDateFormat("yyyy-MM-dd");
+
+            minNgay = sdf.format(minDate) + " 00:00:00";
+            maxNgay = sdf.format(maxDate) + " 23:59:59";
+
+            ArrayList<HoaDon> dshd = hoaDonDAO.getListHoaDon(minNgay, maxNgay);
+            for (int i = dshd.size() - 1; i >= 0; i--) {
+                HoaDon hd = dshd.get(i);
+                if (!(hd.getTongTien() > minPrice && hd.getTongTien() < maxPrice)) {
+                    dshd.remove(i); // Xóa phần tử không thỏa mãn điều kiện
+                }
+            }
+            return dshd;
+        } catch (Exception e) {
+            new Dialog("Hãy nhập các trường lọc đủ và đúng định dang!", Dialog.ERROR_DIALOG);
         }
         return null;
     }

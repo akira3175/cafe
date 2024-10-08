@@ -2,8 +2,10 @@ package com.core.cafe_shop_maven.GUI;
 
 import com.core.cafe_shop_maven.BUS.CTHoaDonBUS;
 import com.core.cafe_shop_maven.BUS.HoaDonBUS;
+import com.core.cafe_shop_maven.BUS.KhuyenMaiBUS;
 import com.core.cafe_shop_maven.BUS.SanPhamBUS;
 import com.core.cafe_shop_maven.CustomFunctions.Dialog;
+import com.core.cafe_shop_maven.DTO.KhuyenMai;
 
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -46,6 +48,7 @@ public class XuatHoaDonGUI extends JDialog {
         this.nhanVien = (String) nhanVien;
         DecimalFormat dcf = new DecimalFormat("###,###");
         txtTongTien.setText(dcf.format(tongTien));
+        setKhuyenMaiHopLe();
     }
 
     private void customEvents() {
@@ -391,6 +394,18 @@ public class XuatHoaDonGUI extends JDialog {
         timMaUI.setVisible(true);
         if (timMaUI.kmTimDuoc != null) {
             txtKM.setText(timMaUI.kmTimDuoc.getMaKM() + " - " + timMaUI.kmTimDuoc.getTenKM());
+        }
+    }
+
+    private void setKhuyenMaiHopLe() {
+        try {
+            int tongTien = Integer.parseInt(txtTongTien.getText().replace(",", ""));
+            KhuyenMai khuyenMai = KhuyenMaiBUS.getInstance().getKhuyenMaiHopLe(tongTien);
+            if (khuyenMai != null) {
+                txtKM.setText(khuyenMai.getMaKM() + " - " + khuyenMai.getTenKM());
+            }
+        } catch (Exception error) {
+            System.out.println(">>> XuatHoaDonGUI -> setKhuyenMaiHopLe = " + error);
         }
     }
 

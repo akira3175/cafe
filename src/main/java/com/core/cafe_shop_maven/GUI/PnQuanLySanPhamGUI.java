@@ -448,7 +448,6 @@ public class PnQuanLySanPhamGUI extends JPanel {
 
         DecimalFormat dcf = new DecimalFormat("###,###");
         for (SanPham sp : dssp) {
-            System.out.println(">>> maSP=" + sp.getMaSP() + " tenSP=" + sp.getTenSP() + " maPN=" + sp.getMaPN());
             if (sp.getTrangThai() == 0)
                 continue;
             Vector vec = new Vector();
@@ -624,5 +623,6 @@ public class PnQuanLySanPhamGUI extends JPanel {
         btnThem.setEnabled(true);
         txtPhanTramLoi.setEnabled(false);
         txtPhanTramLoi.setText("0");
+        txtTimKiem.setText("");
     }
 }

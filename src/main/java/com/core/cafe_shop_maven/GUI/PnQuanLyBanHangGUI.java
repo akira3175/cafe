@@ -819,6 +819,7 @@ public class PnQuanLyBanHangGUI extends JPanel {
             @Override
             public void mouseClicked(MouseEvent e) {
                 xuLyHienCTHoaDon();
+                xuLyResetDataCTHoaDon();
             }
 
             @Override
@@ -865,6 +866,7 @@ public class PnQuanLyBanHangGUI extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 loadDataTblCTHoaDon();
+                xuLyResetDataCTHoaDon();
             }
         });
 
@@ -873,6 +875,7 @@ public class PnQuanLyBanHangGUI extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 loadDataListHoaDon();
                 loadDataTblCTHoaDon();
+                xuLyResetDataHoaDon();
             }
         });
 
@@ -904,7 +907,36 @@ public class PnQuanLyBanHangGUI extends JPanel {
             }
         });
     }
-
+//    private void addKeyListener() {
+//        txtMinSearch.addKeyListener(new KeyAdapter() {
+//            @Override
+//            public void keyReleased(KeyEvent e) {
+//                super.keyReleased(e);
+//
+//            }
+//        });
+//        txtMaxSearch.addKeyListener(new KeyAdapter() {
+//            @Override
+//            public void keyReleased(KeyEvent e) {
+//                super.keyReleased(e);
+//
+//            }
+//        });
+//        txtMinNgayLap.addKeyListener(new KeyAdapter() {
+//            @Override
+//            public void keyReleased(KeyEvent e) {
+//                super.keyReleased(e);
+//
+//            }
+//        });
+//        txtMaxNgayLap.addKeyListener(new KeyAdapter() {
+//            @Override
+//            public void keyReleased(KeyEvent e) {
+//                super.keyReleased(e);
+//
+//            }
+//        });
+//    }
     private void loadDataComboboxLoaiBanSP() {
         cmbLoaiSPBanHang.removeAllItems();
         cmbLoaiSPBanHang.addItem("0 - Chọn loại");
@@ -942,7 +974,7 @@ public class PnQuanLyBanHangGUI extends JPanel {
     // Trung -> Sửa lại giá bán theo phần trăm lời
     private void loadDataTableSanPhamBan() {
         resetSanPhamDangChon();
-        xuLyResetData();
+//        xuLyResetData();
         dtmSanPhamBan.setRowCount(0);
 
         if (cmbLoaiSPBanHang.getItemCount() > 0) {
@@ -973,7 +1005,12 @@ public class PnQuanLyBanHangGUI extends JPanel {
             dtmSanPhamBan.addRow(vec);
         }
     }
-
+    private void resetSanPhamDangChon() {
+        txtMaSPBanHang.setText("");
+        txtTenSPBanHang.setText("");
+        txtDonGiaBanHang.setText("");
+        spnSoLuongBanHang.setValue(0);
+    }
     private void xuLyClickTblBanHang() {
         int row = tblBanHang.getSelectedRow();
         if (row > -1) {
@@ -1264,21 +1301,56 @@ public class PnQuanLyBanHangGUI extends JPanel {
     }
 
     private void xuLyTimTheoKhoangNgay() {
-        ArrayList<HoaDon> listHoaDon = hoaDonBUS.getListHoaDonTheoNgay(txtMinNgayLap.getText(),
-                txtMaxNgayLap.getText());
+        ArrayList<HoaDon> listHoaDon = new ArrayList<>();
+        if(txtMinSearch.getText().equals("") && txtMaxSearch.getText().equals(""))
+            listHoaDon = hoaDonBUS.getListHoaDonTheoNgay(txtMinNgayLap.getText(),
+                    txtMaxNgayLap.getText());
+        if(!txtMinSearch.getText().equals("") && txtMaxSearch.getText().equals(""))
+            new Dialog("Hãy nhập đủ khoảng giá", Dialog.ERROR_DIALOG);
+        if(txtMinSearch.getText().equals("") && !txtMaxSearch.getText().equals(""))
+            new Dialog("Hãy nhập đủ khoảng giá", Dialog.ERROR_DIALOG);
+        if(!txtMinSearch.getText().equals("") && !txtMaxSearch.getText().equals(""))
+            listHoaDon = hoaDonBUS.getListHoaDonTheoDonGiaVaNgay(txtMinSearch.getText(),
+                    txtMaxSearch.getText(),
+                    txtMinNgayLap.getText(),
+                    txtMaxNgayLap.getText());
         addDataListHoaDon(listHoaDon);
     }
 
     private void xuLyTimTheoKhoangGia() {
-        ArrayList<HoaDon> listHoaDon = hoaDonBUS.getListHoaDonTheoGia(txtMinSearch.getText(), txtMaxSearch.getText());
+        ArrayList<HoaDon> listHoaDon = new ArrayList<>();
+        if(txtMinNgayLap.getText().equals("") && txtMaxNgayLap.getText().equals(""))
+            listHoaDon = hoaDonBUS.getListHoaDonTheoGia(txtMinSearch.getText(), txtMaxSearch.getText());
+        if(!txtMinNgayLap.getText().equals("") && txtMaxNgayLap.getText().equals(""))
+            new Dialog("Hãy nhập đủ khoảng ngày", Dialog.ERROR_DIALOG);
+        if(txtMinNgayLap.getText().equals("") && !txtMaxNgayLap.getText().equals(""))
+            new Dialog("Hãy nhập đủ khoảng ngày", Dialog.ERROR_DIALOG);
+        if(!txtMinNgayLap.getText().equals("") && !txtMaxNgayLap.getText().equals(""))
+            listHoaDon = hoaDonBUS.getListHoaDonTheoDonGiaVaNgay(txtMinSearch.getText(),
+                    txtMaxSearch.getText(),
+                    txtMinNgayLap.getText(),
+                    txtMaxNgayLap.getText());
         addDataListHoaDon(listHoaDon);
     }
 
-    private void resetSanPhamDangChon() {
-        txtMaSPBanHang.setText("");
-        txtTenSPBanHang.setText("");
-        txtDonGiaBanHang.setText("");
-        spnSoLuongBanHang.setValue(0);
+    private void xuLyResetDataHoaDon() {
+        txtMaHD.setText("");
+        txtNgayLap.setText("");
+        txtMaKH.setText("");
+        txtMaNV.setText("");
+        txtTongTien.setText("");
+        txtMaKM.setText("");
+        txtMinNgayLap.setText("");
+        txtMaxNgayLap.setText("");
+        txtMinSearch.setText("");
+        txtMaxSearch.setText("");
+    }
 
+    private void xuLyResetDataCTHoaDon() {
+        txtMaHDCT.setText("");
+        txtMaSPCT.setText("");
+        txtSoLuongCT.setText("");
+        txtDonGiaCT.setText("");
+        txtThanhTienCT.setText("");
     }
 }

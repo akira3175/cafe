@@ -3,6 +3,8 @@ package com.core.cafe_shop_maven.BUS;
 import com.core.cafe_shop_maven.DAO.KhuyenMaiDAO;
 import com.core.cafe_shop_maven.DTO.KhuyenMai;
 import com.core.cafe_shop_maven.CustomFunctions.Dialog;
+
+import java.awt.*;
 import java.text.SimpleDateFormat;
 
 import java.util.ArrayList;
@@ -128,5 +130,10 @@ public class KhuyenMaiBUS {
             new Dialog("Sửa thất bại!", Dialog.ERROR_DIALOG);
         }
         return flag;
+    }
+
+    // Trung -> add function add khuyenmai tu dong
+    public KhuyenMai getKhuyenMaiHopLe(int tongTien) {
+        return KhuyenMaiDAO.getInstance().getKhuyenMaiHopLe(tongTien);
     }
 }
