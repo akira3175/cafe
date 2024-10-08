@@ -4,11 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+    <list default="true" id="e1d42cc6-446f-4c45-bc5d-4e96df1bd6c2" name="Changes" comment="Constraints for username Input"></list>
     <list default="true" id="1510e773-c303-4c55-b9af-37d537c59a40" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/src/main/java/com/core/cafe_shop_maven/VALIDATOR/CustomerValidator.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/com/core/cafe_shop_maven/VALIDATOR/PromotionValidator.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/com/core/cafe_shop_maven/VALIDATOR/UsernameValidator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/DlgCapTaiKhoan$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/DlgCapTaiKhoan$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/DlgCapTaiKhoan$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/DlgCapTaiKhoan$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/DlgCapTaiKhoan.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/DlgCapTaiKhoan.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/remember.dat" beforeDir="false" afterPath="$PROJECT_DIR$/remember.dat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/core/cafe_shop_maven/BUS/KhachHangBUS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/cafe_shop_maven/BUS/KhachHangBUS.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/core/cafe_shop_maven/CustomFunctions/NameValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/cafe_shop_maven/CustomFunctions/NameValidator.java" afterDir="false" />
@@ -117,7 +121,7 @@
       <workItem from="1728031879743" duration="715000" />
       <workItem from="1728154557329" duration="5877000" />
       <workItem from="1728225686543" duration="8873000" />
-      <workItem from="1728311457898" duration="6392000" />
+      <workItem from="1728311457898" duration="7748000" />
     </task>
     <task id="LOCAL-00001" summary="Init">
       <option name="closed" value="true" />
@@ -151,7 +155,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728237602520</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Constraints for username Input">
+      <option name="closed" value="true" />
+      <created>1728333345355</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1728333345355</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -173,7 +185,8 @@
     <MESSAGE value="fix display MaKM in HoaDon" />
     <MESSAGE value="Constraints for NhanVien Input" />
     <MESSAGE value="Constraints for NhanVien, KhachHang, KhuyenMai Input. Fix Search for KM and KH" />
-    <option name="LAST_COMMIT_MESSAGE" value="Constraints for NhanVien, KhachHang, KhuyenMai Input. Fix Search for KM and KH" />
+    <MESSAGE value="Constraints for username Input" />
+    <option name="LAST_COMMIT_MESSAGE" value="Constraints for username Input" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
