@@ -63,7 +63,7 @@ public class ThongKeDAO {
     private int getTongSoLuongSP() {
         try {
             Statement stmt = MyConnect.conn.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT COUNT(*) FROM sanpham");
+            ResultSet rs = stmt.executeQuery("SELECT COUNT(*) FROM sanpham WHERE TrangThai = 1");
             while (rs.next()) {
                 return rs.getInt(1);
             }
@@ -119,7 +119,7 @@ public class ThongKeDAO {
     private int getSoLuongNhanVien() {
         try {
             Statement stmt = MyConnect.conn.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT COUNT(*) FROM nhanvien");
+            ResultSet rs = stmt.executeQuery("SELECT COUNT(*) FROM nhanvien WHERE TrangThai = 1");
             while (rs.next()) {
                 return rs.getInt(1);
             }
@@ -132,7 +132,7 @@ public class ThongKeDAO {
     private int getSoLuongKhachHang() {
         try {
             Statement stmt = MyConnect.conn.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT COUNT(*) FROM khachhang");
+            ResultSet rs = stmt.executeQuery("SELECT COUNT(*) FROM khachhang WHERE TrangThai = 1");
             while (rs.next()) {
                 return rs.getInt(1);
             }

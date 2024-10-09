@@ -5,13 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1510e773-c303-4c55-b9af-37d537c59a40" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/remember.dat" beforeDir="false" afterPath="$PROJECT_DIR$/remember.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/DAO/KhuyenMaiDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/DAO/KhuyenMaiDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/DlgCapTaiKhoan$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/DlgCapTaiKhoan$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/DlgCapTaiKhoan$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/DlgCapTaiKhoan$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/DlgCapTaiKhoan.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/DlgCapTaiKhoan.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyNhanVienGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyNhanVienGUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConnectVariable.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ConnectVariable.example" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/cafe_shop_maven/DAO/ThongKeDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/cafe_shop_maven/DAO/ThongKeDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/cafe_shop_maven/GUI/MainQuanLyGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/cafe_shop_maven/GUI/MainQuanLyGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/cafe_shop_maven/GUI/PnQuanLyBanHangGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/cafe_shop_maven/GUI/PnQuanLyBanHangGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/cafe_shop_maven/GUI/PnQuanLyNhapHangGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/cafe_shop_maven/GUI/PnQuanLyNhapHangGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/cafe_shop_maven/GUI/XuatHoaDonGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/cafe_shop_maven/GUI/XuatHoaDonGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/image/SanPham/1112798.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/image/SanPham/842f1b427df4abaaf2e5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/image/SanPham/Capture001.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/DAO/ThongKeDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/DAO/ThongKeDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/MainQuanLyGUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/MainQuanLyGUI$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/MainQuanLyGUI$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/MainQuanLyGUI$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/MainQuanLyGUI$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/MainQuanLyGUI$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/MainQuanLyGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/MainQuanLyGUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyBanHangGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyBanHangGUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyNhapHangGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyNhapHangGUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/image/SanPham/1112798.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/image/SanPham/842f1b427df4abaaf2e5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/image/SanPham/Capture001.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,10 +56,11 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.Cafe_shop_maven.executor": "Run",
+    "Application.cafe.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "416",
-    "git-widget-placeholder": "trung",
+    "git-widget-placeholder": "Merging trung",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/LENOVO/Documents/cafe1.1/cafe",
     "node.js.detected.package.eslint": "true",
@@ -93,7 +108,7 @@
       <workItem from="1728031879743" duration="715000" />
       <workItem from="1728154557329" duration="5877000" />
       <workItem from="1728225686543" duration="8873000" />
-      <workItem from="1728311457898" duration="6392000" />
+      <workItem from="1728311457898" duration="7748000" />
     </task>
     <task id="LOCAL-00001" summary="Init">
       <option name="closed" value="true" />
@@ -127,7 +142,39 @@
       <option name="project" value="LOCAL" />
       <updated>1728237602520</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Constraints for username Input">
+      <option name="closed" value="true" />
+      <created>1728333345355</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1728333345355</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Merge Trung branch">
+      <option name="closed" value="true" />
+      <created>1728372159795</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1728372159795</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Merge Trung branch">
+      <option name="closed" value="true" />
+      <created>1728372252273</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1728372252273</updated>
+    </task>
+    <task id="LOCAL-00008" summary="fix bug">
+      <option name="closed" value="true" />
+      <created>1728382249846</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1728382249846</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -149,7 +196,10 @@
     <MESSAGE value="fix display MaKM in HoaDon" />
     <MESSAGE value="Constraints for NhanVien Input" />
     <MESSAGE value="Constraints for NhanVien, KhachHang, KhuyenMai Input. Fix Search for KM and KH" />
-    <option name="LAST_COMMIT_MESSAGE" value="Constraints for NhanVien, KhachHang, KhuyenMai Input. Fix Search for KM and KH" />
+    <MESSAGE value="Constraints for username Input" />
+    <MESSAGE value="Merge Trung branch" />
+    <MESSAGE value="fix bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix bug" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

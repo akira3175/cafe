@@ -190,6 +190,7 @@ public class MainQuanLyGUI extends JFrame {
          * ============================================================
          */
         con.add(pnMain);
+        thoatChuongTrinh();
     }
 
     int xMouse, yMouse;
@@ -299,9 +300,14 @@ public class MainQuanLyGUI extends JFrame {
     }
 
     private void thoatChuongTrinh() {
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         banHangPanel.xuLyThoat();
-        com.core.cafe_shop_maven.Cafe_shop_maven.changLNF("Nimbus");
-        System.exit(0);
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                banHangPanel.xuLyThoat();
+            }
+        });
     }
 
 }

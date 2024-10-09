@@ -401,6 +401,7 @@ public class XuatHoaDonGUI extends JDialog {
         try {
             int tongTien = Integer.parseInt(txtTongTien.getText().replace(",", ""));
             KhuyenMai khuyenMai = KhuyenMaiBUS.getInstance().getKhuyenMaiHopLe(tongTien);
+            DlgKM.kmTimDuoc = khuyenMai;
             if (khuyenMai != null) {
                 txtKM.setText(khuyenMai.getMaKM() + " - " + khuyenMai.getTenKM());
             }

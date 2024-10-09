@@ -881,6 +881,9 @@ public class PnQuanLyNhapHangGUI extends javax.swing.JPanel {
         ArrayList<SanPham> dssp = sanPhamBUS.getSanPhamTheoTen(tuKhoa);
         for (SanPham sp : dssp) {
             if (sp.getMaLoai() != 1) {
+                if (sp.getTrangThai() == 0) {
+                    continue;
+                }
                 Vector vec = new Vector();
                 vec.add(sp.getMaSP());
                 vec.add(sp.getTenSP());
@@ -1121,6 +1124,8 @@ public class PnQuanLyNhapHangGUI extends javax.swing.JPanel {
     private void btnResetTabXemLaiActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnResetTabXemLaiActionPerformed
         loadDataTableCTPhieuNhap();
         loadDataTablePhieuNhap();
+        resetTxtBoxPhieuNhap();
+        resetTxtSearchPhieuNhap();
     }// GEN-LAST:event_btnResetTabXemLaiActionPerformed
 
     private void tblCTPhieuNhapMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_tblCTPhieuNhapMouseClicked
@@ -1141,6 +1146,7 @@ public class PnQuanLyNhapHangGUI extends javax.swing.JPanel {
 
     private void txtGiaCaoActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtGiaCaoActionPerformed
         loadDataTablePhieuNhapTheoGia(txtGiaThap.getText(), txtGiaCao.getText());
+        resetTxtBoxPhieuNhap();
     }// GEN-LAST:event_txtGiaCaoActionPerformed
 
     private void txtTuNgayActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtTuNgayActionPerformed
@@ -1149,6 +1155,7 @@ public class PnQuanLyNhapHangGUI extends javax.swing.JPanel {
 
     private void txtDenNgayActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtDenNgayActionPerformed
         loadDataTablePhieuNhapTheoNgay(txtTuNgay.getText(), txtDenNgay.getText());
+        resetTxtBoxPhieuNhap();
     }// GEN-LAST:event_txtDenNgayActionPerformed
 
     private void btnResetKhoActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnResetKhoActionPerformed
@@ -1161,6 +1168,25 @@ public class PnQuanLyNhapHangGUI extends javax.swing.JPanel {
         txtSoLuong.setText("0");
         txtDonGia.setText("0");
     }// GEN-LAST:event_btnResetKhoActionPerformed
+
+    private void resetTxtBoxPhieuNhap() {
+        txtMaPN.setText("");
+        txtMaNCC.setText("");
+        txtMaNV.setText("");
+        txtNgayLap.setText("");
+        txtTongTienPN.setText("");
+        txtCTSanPham.setText("");
+        txtCTSoLuong.setText("");
+        txtCTDonGia.setText("");
+        txtCTThanhTien.setText("");
+    }
+
+    private void resetTxtSearchPhieuNhap() {
+        txtTuNgay.setText("");
+        txtDenNgay.setText("");
+        txtGiaThap.setText("");
+        txtGiaCao.setText("");
+    }
 
     // <editor-fold defaultstate="collapsed" desc="Variable">
     // Variables declaration - do not modify//GEN-BEGIN:variables
