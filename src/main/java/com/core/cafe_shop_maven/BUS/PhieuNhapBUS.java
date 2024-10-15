@@ -131,14 +131,14 @@ public class PhieuNhapBUS {
                 FuncTionCheckInput.getInstance().isNumeric(donGiaInput)) {
                 int soLuong = Integer.parseInt(soLuongInput);
                 int donGia = Integer.parseInt(donGiaInput);
-                if(soLuong <=0) {
+                if(soLuong <=0 || soLuong > 1000) {
                     new Dialog("Số lượng nhập vào không hợp lệ!", Dialog.ERROR_DIALOG);
                     return false;
                 }
-                if(donGia <=0 || donGia < 500) {
+                if(donGia < 500 || donGia > 1000000000) {
                     new Dialog("Đơn giá nhập vào không hợp lệ!", Dialog.ERROR_DIALOG);
                     return false;
-                }    
+                }
                 return true;
             } else {
                 new Dialog("Số lượng hoặc đơn giá nhập vào không hợp lệ!", Dialog.ERROR_DIALOG);

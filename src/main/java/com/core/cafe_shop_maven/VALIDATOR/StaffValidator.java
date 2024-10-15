@@ -29,13 +29,11 @@ public class StaffValidator {
     }
 
     public boolean isCanAdd() {
-        validateForAdd();
-        return isValid;
+        return validateForAdd();
     }
 
     public boolean isCanEdit() {
-        validateForEdit();
-        return isValid;
+        return validateForEdit();
     }
 
     private boolean validateForEdit() {
@@ -62,6 +60,9 @@ public class StaffValidator {
             return false;
         }
         if (!isOver18()) {
+            return false;
+        }
+        if (isOver65()) {
             return false;
         }
         if (!isAddressValid()) {
@@ -150,7 +151,19 @@ public class StaffValidator {
            isValid = false;
            message = "Nhân viên dưới 18 tuổi!";
        }
-       System.out.println(age.getYears());
        return isValid;
    }
+
+    private boolean isOver65() {
+        LocalDate ngaySinhLocalDate = LocalDate.parse(nhanVien.getNgaySinh(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+        LocalDate ngayHienTai = LocalDate.now();
+        Period age = Period.between(ngaySinhLocalDate, ngayHienTai);
+        if (age.getYears() > 65) {
+            isValid = true;
+            message = "Nhân viên quá 65 tuổi.";
+        } else {
+            isValid = false;
+        }
+        return isValid;
+    }
 }

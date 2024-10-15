@@ -96,6 +96,10 @@ public class SanPhamBUS {
 
     public ArrayList<SanPham> getSanPhamTheoTen(String ten) {
         ArrayList<SanPham> dssp = new ArrayList<>();
+        if(ten.length() > 50) {
+            new Dialog("Chuỗi tìm kiếm không được vượt quá 50 ký tự!", Dialog.ERROR_DIALOG);
+            return dssp;
+        }
         for (SanPham sp : listSanPham) {
             String tenSP = sp.getTenSP().toLowerCase();
             if (tenSP.toLowerCase().contains(ten.toLowerCase())) {
