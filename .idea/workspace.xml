@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+    <list default="true" id="e1d42cc6-446f-4c45-bc5d-4e96df1bd6c2" name="Changes" comment="add Image for default Imagge SanPham">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    </list>
     <list default="true" id="1510e773-c303-4c55-b9af-37d537c59a40" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/remember.dat" beforeDir="false" afterPath="$PROJECT_DIR$/remember.dat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/core/cafe_shop_maven/BUS/PhieuNhapBUS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/cafe_shop_maven/BUS/PhieuNhapBUS.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/core/cafe_shop_maven/BUS/SanPhamBUS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/cafe_shop_maven/BUS/SanPhamBUS.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/core/cafe_shop_maven/VALIDATOR/StaffValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/cafe_shop_maven/VALIDATOR/StaffValidator.java" afterDir="false" />
@@ -60,6 +64,32 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Cafe_shop_maven.executor&quot;: &quot;Run&quot;,
+    &quot;Application.cafe.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH&quot;: &quot;416&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/LENOVO/Documents/cafe1.1/cafe&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\LENOVO\Documents\cafe1.1\cafe\src\main\resources\image\SanPham" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="cafe" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.core.cafe_shop_maven.Cafe_shop_maven" />
@@ -69,10 +99,18 @@
       </method>
     </configuration>
   </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-20.0.2-azul-20.0.2-3183f394aec4-4edb7f01" />
+        <option value="jdk-21.0.2-corretto-21.0.2-4caba194b151-51586f01" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="1510e773-c303-4c55-b9af-37d537c59a40" name="Changes" comment="" />
+      <changelist id="e1d42cc6-446f-4c45-bc5d-4e96df1bd6c2" name="Changes" comment="add Image for default Imagge SanPham" />
       <created>1728222664552</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -95,6 +133,7 @@
       <workItem from="1728154557329" duration="5877000" />
       <workItem from="1728225686543" duration="8873000" />
       <workItem from="1728311457898" duration="7748000" />
+      <workItem from="1728434586124" duration="2206000" />
     </task>
     <task id="LOCAL-00001" summary="Init">
       <option name="closed" value="true" />
@@ -160,7 +199,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728382249846</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="add Image for default Imagge SanPham">
+      <option name="closed" value="true" />
+      <created>1728409385023</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1728409385023</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -185,7 +232,8 @@
     <MESSAGE value="Constraints for username Input" />
     <MESSAGE value="Merge Trung branch" />
     <MESSAGE value="fix bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix bug" />
+    <MESSAGE value="add Image for default Imagge SanPham" />
+    <option name="LAST_COMMIT_MESSAGE" value="" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
