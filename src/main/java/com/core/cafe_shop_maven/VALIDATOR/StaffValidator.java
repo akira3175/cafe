@@ -46,7 +46,7 @@ public class StaffValidator {
         if (!isEdited()) {
             return false;
         }
-        if (isNumberPhoneStaffExist()) {
+        if (isNumberPhoneStaffExist(nhanVien.getMaNV())) {
             return false;
         }
         return true;
@@ -79,6 +79,12 @@ public class StaffValidator {
 
     private boolean isNumberPhoneStaffExist() {
         isValid = !NhanVienDAO.getInstance().kiemTraSoDienThoaiCoTonTaiKhong(nhanVien.getSdt());
+        message = "Số điện thoại đã tồn tại!";
+        return !isValid;
+    }
+
+    private boolean isNumberPhoneStaffExist(int IDStaff) {
+        isValid = !NhanVienDAO.getInstance().kiemTraSoDienThoaiCoTonTaiKhong(IDStaff, nhanVien.getSdt());
         message = "Số điện thoại đã tồn tại!";
         return !isValid;
     }

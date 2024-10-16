@@ -48,7 +48,7 @@ public class CustomerValidator {
         if (!isEdited()) {
             return false;
         }
-        if (isNumberPhoneCustomerExist()) {
+        if (isNumberPhoneCustomerExist(khachHang.getMaKH())) {
             return false;
         }
         return true;
@@ -79,6 +79,12 @@ public class CustomerValidator {
 
     private boolean isNumberPhoneCustomerExist() {
         isValid = !KhachHangDAO.getInstance().kiemTraSoDienThoaiCoTonTaiKhong(khachHang.getSdt());
+        message = "Số điện thoại đã tồn tại!";
+        return !isValid;
+    }
+
+    private boolean isNumberPhoneCustomerExist(int IDCustomer) {
+        isValid = !KhachHangDAO.getInstance().kiemTraSoDienThoaiCoTonTaiKhong(IDCustomer, khachHang.getSdt());
         message = "Số điện thoại đã tồn tại!";
         return !isValid;
     }

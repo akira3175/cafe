@@ -203,4 +203,22 @@ public class NhanVienDAO {
         }
         return true;
     }
+
+    public boolean kiemTraSoDienThoaiCoTonTaiKhong(int maNV, String sdt) {
+        int soDienThoai = Integer.parseInt(sdt);
+        try {
+            String sql = "SELECT COUNT(*) FROM NhanVien WHERE SDT=? AND MaNV!=?";
+            PreparedStatement pre = MyConnect.conn.prepareStatement(sql);
+            pre.setInt(1, soDienThoai);
+            pre.setInt(2, maNV);
+            ResultSet rs = pre.executeQuery();
+            rs.next();
+            if (rs.getInt(1) == 0) {
+                return false;
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return true;
+    }
 }
