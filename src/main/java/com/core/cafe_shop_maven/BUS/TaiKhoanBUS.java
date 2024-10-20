@@ -56,31 +56,32 @@ public class TaiKhoanBUS {
         }
     }
 
-    public boolean kiemTraTrungTenDangNhap(String tenDangNhap) {
-        return taiKhoanDAO.kiemTraTrungTenDangNhap(tenDangNhap);
+    public boolean kiemTraTrungTenDangNhap(String tenDangNhap, int maNV) {
+        return taiKhoanDAO.kiemTraTrungTenDangNhap(tenDangNhap, maNV);
     }
 
     public boolean themTaiKhoan(String ma, String tenDangNhap, String quyen) {
         int maNV = Integer.parseInt(ma);
+        boolean flagMoKhoaTaiKhoan;
         if (tenDangNhap.trim().equals("")) {
             new Dialog("Không được để trống Tên đăng nhập!", Dialog.ERROR_DIALOG);
             return false;
         }
-        if (kiemTraTrungTenDangNhap(tenDangNhap)) {
-            Dialog dlg = new Dialog("Tên đăng nhập bị trùng! Có thể tài khoản bị khoá, thực hiện mở khoá?",
-                    Dialog.WARNING_DIALOG);
-            if (dlg.getAction() == Dialog.OK_OPTION) {
-                moKhoaTaiKhoan(ma);
+        boolean trungTenDangNhap = kiemTraTrungTenDangNhap(tenDangNhap, maNV);
+        if (trungTenDangNhap) {
+            new Dialog("Tên đăng nhập bị trùng!",
+                    Dialog.ERROR_DIALOG);
+            return false;
+        } else {
+            flagMoKhoaTaiKhoan = moKhoaTaiKhoan(ma);
+            if (flagMoKhoaTaiKhoan) {
                 return true;
             }
-            return false;
         }
         boolean flag = taiKhoanDAO.themTaiKhoan(tenDangNhap, tenDangNhap);
         if (flag) {
-
             NhanVienDAO.getInstance().updateTaiKhoanNV(maNV, tenDangNhap);
             taiKhoanDAO.themQuyen(taiKhoanDAO.getMaTK(tenDangNhap), PhanQuyenDAO.getInstance().getMaQuyen(quyen));
-
             new Dialog("Cấp tài khoản thành công! Mật khẩu là " + tenDangNhap, Dialog.SUCCESS_DIALOG);
         } else {
             new Dialog("Cấp tài khoản thất bại! Tài khoản đã tồn tại", Dialog.ERROR_DIALOG);
@@ -108,14 +109,16 @@ public class TaiKhoanBUS {
         }
     }
 
-    public void moKhoaTaiKhoan(String ma) {
+    public boolean moKhoaTaiKhoan(String ma) {
         int maNV = Integer.parseInt(ma);
         int maTK = NhanVienDAO.getInstance().getNhanVien(maNV).getMaTK();
         boolean flag = taiKhoanDAO.moKhoaTaiKhoan(maTK);
         if (flag) {
             new Dialog("Mở khoá tài khoản thành công!", Dialog.SUCCESS_DIALOG);
+            return true;
         } else {
-            new Dialog("Mở khoá tài khoản thất bại!", Dialog.ERROR_DIALOG);
+//            new Dialog("Mở khoá tài khoản thất bại!", Dialog.ERROR_DIALOG);
+            return false;
         }
     }
 

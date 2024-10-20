@@ -52,11 +52,12 @@ public class TaiKhoanDAO {
         return -1;
     }
 
-    public boolean kiemTraTrungTenDangNhap(String TenTaiKhoan) {
+    public boolean kiemTraTrungTenDangNhap(String TenTaiKhoan, int maNV) {
         try {
-            String sql = "SELECT * FROM taikhoan WHERE TenTaiKhoan = ?";
+            String sql = "SELECT * FROM taikhoan JOIN db_cafe.nhanvien ON taikhoan.MaTK = nhanvien.MaTK WHERE TenTaiKhoan = ? AND MaNV != ?";
             PreparedStatement pre = MyConnect.conn.prepareStatement(sql);
             pre.setString(1, TenTaiKhoan);
+            pre.setInt(2, maNV);
             ResultSet rs = pre.executeQuery();
             return rs.next();
         } catch (Exception e) {
