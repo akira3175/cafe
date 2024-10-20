@@ -228,6 +228,9 @@ public class DlgCapTaiKhoan extends javax.swing.JDialog {
                 if (!tenDangNhap.isEmpty()) {
                         txtTenDangNhap.setText(tenDangNhap);
                         txtTenDangNhap.setEditable(false);
+                        this.setTitle("Mở tài khoản");
+                        this.lblTitle.setText("Mở khóa tài khoản nhân viên");
+                        this.btnTaoTaiKhoan.setText("Mở tài khoản");
                 }
                 return tenDangNhap;
         }
