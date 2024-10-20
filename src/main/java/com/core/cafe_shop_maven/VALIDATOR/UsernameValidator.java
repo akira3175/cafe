@@ -24,16 +24,16 @@ public class UsernameValidator {
 
     private boolean validator() {
         if (!isEnoughLength()) {
-            message = "Username phải có độ dài từ " + MIN_LENGTH + " đến " + MAX_LENGTH + " ký tự.";
+            message = "Tên đăng nhập phải có độ dài từ " + MIN_LENGTH + " đến " + MAX_LENGTH + " ký tự.";
             return false;
         }
 
         if (!isHaveCharacterAndNumberOnly()) {
-            message = "Username chỉ được chứa chữ cái và số.";
+            message = "Tên đăng nhập chỉ được chứa chữ cái và số.";
             return false;
         }
 
-        message = "Username hợp lệ.";
+        message = "Tên đăng nhập hợp lệ.";
         return true;
     }
 

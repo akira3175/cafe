@@ -824,15 +824,16 @@ public class PnQuanLyNhanVienGUI extends JPanel {
             txtSDT.setText(tblNhanVien.getValueAt(row, 4) + "");
             txtDiaChi.setText(tblNhanVien.getValueAt(row, 3) + "");
             if (tblNhanVien.getValueAt(row, 5).equals("Khả dụng")) {
-                btnCapTaiKhoan.setText("Cấp tài khoản");
                 turnOffButtonCapTaiKhoan();
                 turnOnButtonKhoaTaiKhoan();
             } else {
-                if (tblNhanVien.getValueAt(row, 5).equals("Bị khoá")) {
-                    btnCapTaiKhoan.setText("Mở tài khoản");
-                }
                 turnOnButtonCapTaiKhoan();
                 turnOffButtonKhoaTaiKhoan();
+            }
+            if (tblNhanVien.getValueAt(row, 5).equals("Bị khoá")) {
+                btnCapTaiKhoan.setText("Mở tài khoản");
+            } else {
+                btnCapTaiKhoan.setText("Cấp tài khoản");
             }
             turnOffButtonThemNhanVien();
             turnOnButtonSuaNhanVien();

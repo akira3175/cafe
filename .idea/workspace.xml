@@ -6,8 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="e1d42cc6-446f-4c45-bc5d-4e96df1bd6c2" name="Changes" comment="fix logic for add account staff">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/cafe_shop_maven/GUI/DlgCapTaiKhoan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/cafe_shop_maven/GUI/DlgCapTaiKhoan.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/remember.dat" beforeDir="false" afterPath="$PROJECT_DIR$/remember.dat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/core/cafe_shop_maven/GUI/PnQuanLyNhanVienGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/cafe_shop_maven/GUI/PnQuanLyNhanVienGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/cafe_shop_maven/VALIDATOR/UsernameValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/cafe_shop_maven/VALIDATOR/UsernameValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/DlgCapTaiKhoan.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/DlgCapTaiKhoan.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyNhanVienGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/GUI/PnQuanLyNhanVienGUI.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +112,7 @@
       <workItem from="1729046925737" duration="2322000" />
       <workItem from="1729204372247" duration="1018000" />
       <workItem from="1729418770807" duration="4183000" />
-      <workItem from="1729432043170" duration="3970000" />
+      <workItem from="1729432043170" duration="5225000" />
     </task>
     <task id="LOCAL-00001" summary="Init">
       <option name="closed" value="true" />
@@ -207,7 +210,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729434451310</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="fix logic for add account staff">
+      <option name="closed" value="true" />
+      <created>1729436089937</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1729436089937</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
