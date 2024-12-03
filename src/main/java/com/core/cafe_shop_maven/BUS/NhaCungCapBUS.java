@@ -4,7 +4,6 @@ import com.core.cafe_shop_maven.DAO.NhaCungCapDAO;
 import com.core.cafe_shop_maven.DTO.NhaCungCap;
 import com.core.cafe_shop_maven.CustomFunctions.Dialog;
 import java.util.ArrayList;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class NhaCungCapBUS {
@@ -37,19 +36,19 @@ public class NhaCungCapBUS {
     }
 
     public boolean themNhaCungCap(String tenNCC, String diaChi, String dienThoai, String fax) {
-        if (tenNCC.trim().equals("")) {
+        if (tenNCC.trim().isEmpty()) {
             new Dialog("Hãy nhập tên nhà cung cấp!", Dialog.ERROR_DIALOG);
             return false;
         }
-        if (diaChi.trim().equals("")) {
+        if (diaChi.trim().isEmpty()) {
             new Dialog("Hãy nhập địa chỉ!", Dialog.ERROR_DIALOG);
             return false;
         }
-        if (dienThoai.trim().equals("")) {
+        if (dienThoai.trim().isEmpty()) {
             new Dialog("Hãy nhập số điện thoại!", Dialog.ERROR_DIALOG);
             return false;
         }
-        if (fax.trim().equals("")) {
+        if (fax.trim().isEmpty()) {
             new Dialog("Hãy nhập fax!", Dialog.ERROR_DIALOG);
             return false;
         }
@@ -74,19 +73,19 @@ public class NhaCungCapBUS {
     }
 
     public boolean suaNhaCungCap(String maNCC, String tenNCC, String diaChi, String dienThoai, String fax) {
-        if (tenNCC.trim().equals("")) {
+        if (tenNCC.trim().isEmpty()) {
             new Dialog("Hãy nhập tên Nhà cung cấp này!", Dialog.ERROR_DIALOG);
             return false;
         }
-        if (diaChi.trim().equals("")) {
+        if (diaChi.trim().isEmpty()) {
             new Dialog("Hãy nhập địa chỉ!", Dialog.ERROR_DIALOG);
             return false;
         }
-        if (dienThoai.trim().equals("")) {
+        if (dienThoai.trim().isEmpty()) {
             new Dialog("Hãy nhập số điện thoại!", Dialog.ERROR_DIALOG);
             return false;
         }
-        if (fax.trim().equals("")) {
+        if (fax.trim().isEmpty()) {
             new Dialog("Hãy nhập fax!", Dialog.ERROR_DIALOG);
             return false;
         }
