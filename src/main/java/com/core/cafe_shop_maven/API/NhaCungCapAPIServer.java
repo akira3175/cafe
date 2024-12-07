@@ -2,6 +2,7 @@ package com.core.cafe_shop_maven.API;
 
 import com.core.cafe_shop_maven.DTO.NhaCungCap;
 import com.core.cafe_shop_maven.DAO.NhaCungCapDAO;
+import com.google.gson.GsonBuilder;
 import com.sun.net.httpserver.HttpServer;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpExchange;
@@ -33,6 +34,13 @@ public class NhaCungCapAPIServer extends JFrame {
     }
 
     private void initializeUI() {
+        try {
+            // Đặt Look and Feel mặc định
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         setTitle("Nhà Cung Cấp API Server");
         setSize(600, 400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -64,14 +72,14 @@ public class NhaCungCapAPIServer extends JFrame {
         server.createContext("/nhacungcap/add", new ThemNhaCungCapHandler());
         server.createContext("/nhacungcap/change", new CapNhatNhaCungCapHandler());
         server.createContext("/nhacungcap/delete", new XoaNhaCungCapHandler());
-        server.createContext("/nhacungcap/search", new TimKiemNhaCungCapHandler());
+        server.createContext("/nhacungcap/", new TimKiemNhaCungCapHandler());
     }
 
     private class NhaCungCapHandler implements HttpHandler {
         @Override
         public void handle(HttpExchange exchange) throws IOException {
             ArrayList<NhaCungCap> danhSachNhaCungCap = nhaCungCapDAO.getListNhaCungCap();
-            sendJsonResponse(exchange, gson.toJson(danhSachNhaCungCap));
+            sendJsonResponse(exchange, danhSachNhaCungCap, 200);
             log("Request tới /nhacungcap từ " + exchange.getRemoteAddress());
         }
     }
@@ -84,7 +92,7 @@ public class NhaCungCapAPIServer extends JFrame {
                     NhaCungCap nhaCungCap = readNhaCungCapFromRequest(exchange);
                     validateNhaCungCap(nhaCungCap);
                     boolean ketQua = nhaCungCapDAO.addNCC(nhaCungCap);
-                    sendResponseBasedOnResult(exchange, ketQua, nhaCungCap);
+                    sendResponseBasedOnResult(exchange, ketQua, nhaCungCap, "add");
                 } catch (ValidationException ve) {
                     sendErrorResponse(exchange, ve.getStatusCode(), ve.getMessage());
                 } catch (Exception e) {
@@ -104,7 +112,7 @@ public class NhaCungCapAPIServer extends JFrame {
                     NhaCungCap nhaCungCap = readNhaCungCapFromRequest(exchange);
                     validateNhaCungCap(nhaCungCap);
                     boolean ketQua = nhaCungCapDAO.updateNCC(nhaCungCap);
-                    sendResponseBasedOnResult(exchange, ketQua, nhaCungCap);
+                    sendResponseBasedOnResult(exchange, ketQua, nhaCungCap, "update");
                 } catch (ValidationException ve) {
                     sendErrorResponse(exchange, ve.getStatusCode(), ve.getMessage());
                 } catch (Exception e) {
@@ -119,35 +127,61 @@ public class NhaCungCapAPIServer extends JFrame {
     private class XoaNhaCungCapHandler implements HttpHandler {
         @Override
         public void handle(HttpExchange exchange) throws IOException {
-            if ("DELETE".equals(exchange.getRequestMethod())) {
-                int maNCC = getMaNCCFromQuery(exchange);
-                if (maNCC <= 0) {
-                    sendErrorResponse(exchange, 400, "Mã nhà cung cấp không hợp lệ");
+            String path = exchange.getRequestURI().getPath();
+            String[] pathParts = path.split("/"); // Tách đường dẫn
+            if (pathParts.length < 4 || pathParts[3].isEmpty()) {
+                sendErrorResponse(exchange, 400, "Mã nhà cung cấp không hợp lệ");
+                return;
+            }
+
+            try {
+                int maNCC = Integer.parseInt(pathParts[3]);
+
+                // Kiểm tra xem nhà cung cấp có tồn tại không
+                NhaCungCap nhaCungCap = nhaCungCapDAO.getNhaCungCap(maNCC);
+                if (nhaCungCap == null) {
+                    sendErrorResponse(exchange, 404, "Không tìm thấy nhà cung cấp");
                     return;
                 }
+
+                // Thực hiện xóa nhà cung cấp
                 boolean ketQua = nhaCungCapDAO.deleteNCC(maNCC);
-                sendResponseBasedOnResult(exchange, ketQua, null);
-            } else {
-                sendErrorResponse(exchange, 405, "Phương thức không được hỗ trợ");
+                if (ketQua) {
+                    sendJsonResponse(exchange, null, 204); // Trả về mã 204 No Content
+                    log("Đã xóa nhà cung cấp với ID: " + maNCC);
+                } else {
+                    sendErrorResponse(exchange, 500, "Lỗi khi xóa nhà cung cấp");
+                }
+            } catch (NumberFormatException e) {
+                sendErrorResponse(exchange, 400, "Mã nhà cung cấp không hợp lệ");
             }
         }
     }
 
-
     private class TimKiemNhaCungCapHandler implements HttpHandler {
         @Override
         public void handle(HttpExchange exchange) throws IOException {
-            int maNCC = getMaNCCFromQuery(exchange);
-            NhaCungCap nhaCungCap = nhaCungCapDAO.getNhaCungCap(maNCC);
-            System.out.println(maNCC);
-
-            if (nhaCungCap == null) {
-                sendErrorResponse(exchange, 404, "Không tìm thấy nhà cung cấp");
+            String path = exchange.getRequestURI().getPath();
+            String[] pathParts = path.split("/"); // Tách đường dẫn
+            if (pathParts.length < 3) {
+                sendErrorResponse(exchange, 400, "Mã nhà cung cấp không hợp lệ");
                 return;
             }
 
-            sendJsonResponse(exchange, gson.toJson(nhaCungCap));
-            log("Tìm kiếm nhà cung cấp theo ID: " + maNCC);
+            try {
+                int maNCC = Integer.parseInt(pathParts[2]);
+                NhaCungCap nhaCungCap = nhaCungCapDAO.getNhaCungCap(maNCC);
+
+                if (nhaCungCap == null) {
+                    sendErrorResponse(exchange, 404, "Không tìm thấy nhà cung cấp");
+                    return;
+                }
+
+                sendJsonResponse(exchange, nhaCungCap, 200);
+                log("Tìm kiếm nhà cung cấp theo ID: " + maNCC);
+            } catch (NumberFormatException e) {
+                sendErrorResponse(exchange, 400, "Mã nhà cung cấp không hợp lệ");
+            }
         }
     }
 
@@ -191,52 +225,46 @@ public class NhaCungCapAPIServer extends JFrame {
         }
     }
 
-    private int getMaNCCFromQuery(HttpExchange exchange) {
-        String query = exchange.getRequestURI().getQuery();
-        if (query != null) {
-            String[] params = query.split("&");
-            for (String param : params) {
-                String[] keyValue = param.split("=");
-                if ("maNCC".equals(keyValue[0])) { // Thay đổi tên tham số thành "maNCC"
-                    try {
-                        return Integer.parseInt(keyValue[1]);
-                    } catch (NumberFormatException e) {
-                        return -1;
-                    }
-                }
-            }
-        }
-        return -1;
-    }
-
-    private String getTenNCCFromQuery(HttpExchange exchange) {
-        String query = exchange.getRequestURI().getQuery();
-        if (query != null) {
-            for (String param : query.split("&")) {
-                String[] keyValue = param.split("=");
-                if ("tenNCC".equals(keyValue[0])) {
-                    return java.net.URLDecoder.decode(keyValue[1], StandardCharsets.UTF_8);
-                }
-            }
-        }
-        return null;
-    }
-
-    private void sendResponseBasedOnResult(HttpExchange exchange, boolean result, NhaCungCap nhaCungCap) throws IOException {
+    private void sendResponseBasedOnResult(HttpExchange exchange, boolean result, NhaCungCap nhaCungCap, String action) throws IOException {
         if (result) {
-            String response = gson.toJson(nhaCungCap);
-            sendJsonResponse(exchange, response);
+            String responseMessage;
+            Map<String, Object> responseMap = new HashMap<>();
+
+            switch (action) {
+                case "add":
+                    responseMessage = "Thêm nhà cung cấp thành công!";
+                    responseMap.put("message", responseMessage);
+                    responseMap.put("data", nhaCungCap);
+                    sendJsonResponse(exchange, responseMap, 201);
+                    break;
+                case "update":
+                    responseMessage = "Cập nhật nhà cung cấp thành công!";
+                    responseMap.put("message", responseMessage);
+                    responseMap.put("data", nhaCungCap);
+                    sendJsonResponse(exchange, responseMap, 200);
+                    break;
+                case "delete":
+                    // Nếu xóa thành công, trả về 204 (No Content)
+                    exchange.sendResponseHeaders(204, -1);
+                    return; // Không cần gửi nội dung phản hồi
+                default:
+                    sendErrorResponse(exchange, 400, "Thao tác không hợp lệ");
+            }
         } else {
             sendErrorResponse(exchange, 400, "Thao tác thất bại");
         }
     }
 
-    private void sendJsonResponse(HttpExchange exchange, String response) throws IOException {
-        exchange.getResponseHeaders().add("Content-Type", "application/json");
-        byte[] responseBytes = response.getBytes(StandardCharsets.UTF_8);
-        exchange.sendResponseHeaders(200, responseBytes.length);
+    private void sendJsonResponse(HttpExchange exchange, Object data, int statusCode) throws IOException {
+        Gson prettyGson = new GsonBuilder().setPrettyPrinting().create();
+        String jsonResponse = prettyGson.toJson(data);
+        byte[] responseBytes = jsonResponse.getBytes(StandardCharsets.UTF_8);
+
+        exchange.getResponseHeaders().set("Content-Type", "application/json");
+        exchange.sendResponseHeaders(statusCode, responseBytes.length);
+
         try (OutputStream os = exchange.getResponseBody()) {
-            os.write(response.getBytes(StandardCharsets.UTF_8));
+            os.write(jsonResponse.getBytes(StandardCharsets.UTF_8));
         }
     }
 
