@@ -4,6 +4,7 @@
 
 package com.core.cafe_shop_maven;
 
+import com.core.cafe_shop_maven.API.*;
 import com.core.cafe_shop_maven.DAO.MyConnect;
 import com.core.cafe_shop_maven.GUI.DangNhapGUI;
 import com.formdev.flatlaf.FlatLightLaf;
@@ -16,7 +17,7 @@ public class Cafe_shop_maven {
 
     public static void main(String[] args) {
         new MyConnect();
-
+        NhaCungCapAPIServer.main(args);
         changLNF("FlatLaf Light");
         new DangNhapGUI();
     }

@@ -53,6 +53,7 @@ public class PhanQuyenBUS {
 
     public boolean themQuyen(String tenQuyen) {
         if (tenQuyen == null || tenQuyen.trim().equals("")) {
+            new Dialog("Tên quyền không được để trống!", Dialog.ERROR_DIALOG);
             return false;
         }
 
@@ -66,7 +67,7 @@ public class PhanQuyenBUS {
         if (flag) {
             new Dialog("Thêm thành công! Hãy hiệu chỉnh quyền", Dialog.SUCCESS_DIALOG);
         } else {
-            new Dialog("Thêm thất bại! Quyền đã tồn tại", Dialog.ERROR_DIALOG);
+            new Dialog("Thêm thất bại!", Dialog.ERROR_DIALOG);
         }
         return flag;
     }

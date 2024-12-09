@@ -83,6 +83,7 @@ public class NhaCungCapDAO {
     }
 
     public boolean updateNCC(NhaCungCap ncc) {
+        System.out.println(ncc.getMaNCC());
         boolean result = false;
         try {
             String sql = "UPDATE nhacungcap SET TenNCC=?, DiaChi=?, SDT=?, Fax=? WHERE TrangThai = 1 AND MaNCC=?";
@@ -103,16 +104,14 @@ public class NhaCungCapDAO {
 
     public boolean deleteNCC(int maNCC) {
         boolean result = false;
-        try {
-            String sql = "UPDATE nhacungcap "
-                    + "SET TrangThai = 0"
-                    + "WHERE MaNCC=" + maNCC;
-            Statement stmt = MyConnect.conn.createStatement();
-            result = stmt.executeUpdate(sql) > 0;
+        String sql = "UPDATE nhacungcap SET TrangThai = 0 WHERE MaNCC = ?";
+        try (PreparedStatement pstmt = MyConnect.conn.prepareStatement(sql)) {
+            pstmt.setInt(1, maNCC);
+            result = pstmt.executeUpdate() > 0;
         } catch (SQLException ex) {
             ex.printStackTrace();
-            return false;
         }
         return result;
     }
+
 }
