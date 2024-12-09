@@ -208,8 +208,11 @@ public class DlgQuanLyLoai extends javax.swing.JDialog {
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnThemActionPerformed
         // TODO add your handling code here:
-        if (loaiBUS.themLoai(dtmLoai.getRowCount(), txtTenLoai.getText(), txtMoTa.getText())) {
+        if (loaiBUS.themLoai(txtTenLoai.getText(), txtMoTa.getText())) {
             loadDataLenTblLoai();
+            txtTenLoai.setText("");
+            txtMaLoai.setText("");
+            txtMoTa.setText("");
         }
     }// GEN-LAST:event_btnThemActionPerformed
 

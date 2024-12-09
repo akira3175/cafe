@@ -35,6 +35,13 @@ public class MyConnect {
         }
 
     }
+    
+     // Phương thức tĩnh để khởi tạo kết nối
+    public static void initConnection() {
+        if (conn == null) { // Chỉ khởi tạo kết nối nếu chưa được khởi tạo
+            new MyConnect();
+        }
+    }
 
     private void docFileText() {
         // Xử lý đọc file để lấy ra 4 tham số
