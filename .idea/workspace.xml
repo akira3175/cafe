@@ -4,10 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e1d42cc6-446f-4c45-bc5d-4e96df1bd6c2" name="Changes" comment="add API for NhaCungCap">
+    <list default="true" id="e1d42cc6-446f-4c45-bc5d-4e96df1bd6c2" name="Changes" comment="fix logic for add account staff">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/core/cafe_shop_maven/API/NhaCungCapAPIServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/cafe_shop_maven/API/NhaCungCapAPIServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/cafe_shop_maven/API/NhaCungCapAPIServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConnectVariable.example" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/remember.dat" beforeDir="false" afterPath="$PROJECT_DIR$/remember.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/cafe_shop_maven/BUS/NhaCungCapBUS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/cafe_shop_maven/BUS/NhaCungCapBUS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/cafe_shop_maven/BUS/PhanQuyenBUS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/cafe_shop_maven/BUS/PhanQuyenBUS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/cafe_shop_maven/Cafe_shop_maven.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/cafe_shop_maven/Cafe_shop_maven.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/cafe_shop_maven/DAO/NhaCungCapDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/cafe_shop_maven/DAO/NhaCungCapDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/BUS/NhaCungCapBUS.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/BUS/NhaCungCapBUS.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/BUS/PhanQuyenBUS.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/BUS/PhanQuyenBUS.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/Cafe_shop_maven.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/Cafe_shop_maven.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/DAO/NhaCungCapDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/cafe_shop_maven/DAO/NhaCungCapDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +66,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "416",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "Merging main",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/LENOVO/Documents/cafe1.1/cafe",
     "node.js.detected.package.eslint": "true",

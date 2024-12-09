@@ -73,9 +73,8 @@ public class LoaiDAO {
     public boolean suaLoai(int maLoai, String ten, String Mota) {
         try {
             String sql = "UPDATE loaisanpham "
-                    + "SET TenLSP=?,"
-                    + "SET Mota=?,"
-                    + "WHERE MaLSP=" + maLoai;
+           + "SET TenLSP=?, Mota=? "
+           + "WHERE MaLSP=" + maLoai;
             PreparedStatement pre = MyConnect.conn.prepareStatement(sql);
             pre.setString(1, ten);
             pre.setString(2, Mota);
@@ -83,6 +82,10 @@ public class LoaiDAO {
             int x = pre.executeUpdate();
             return x > 0 ? true : false;
         } catch (SQLException e) {
+            // In lỗi ra console
+            e.printStackTrace(); 
+            // Hoặc in thông báo lỗi tùy chỉnh
+            System.out.println("Lỗi khi cập nhật loại sản phẩm: " + e.getMessage()); 
         }
         return false;
     }

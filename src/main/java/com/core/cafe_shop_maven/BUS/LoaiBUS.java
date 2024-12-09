@@ -43,13 +43,12 @@ public class LoaiBUS {
         return "";
     }
 
-    public boolean themLoai(int maLoai, String tenLoai, String MoTa) {
+    public boolean themLoai(String tenLoai, String MoTa) {
         if (tenLoai.trim().equals("")) {
             new Dialog("Không được để trống tên loại!", Dialog.ERROR_DIALOG);
             return false;
         }
-        maLoai += 1;
-        LoaiSP loai = new LoaiSP(maLoai, tenLoai, MoTa);
+        LoaiSP loai = new LoaiSP(tenLoai, MoTa);
         if (loaiDAO.themLoai(loai)) {
             new Dialog("Thêm thành công!", Dialog.SUCCESS_DIALOG);
             return true;

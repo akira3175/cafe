@@ -16,6 +16,13 @@ public class LoaiSP {
         this.Mota = Mota;
         TrangThai = 1;
     }
+    
+    public LoaiSP(String tenLoai, String Mota) {
+        this.maLoai = maLoai;
+        this.tenLoai = tenLoai;
+        this.Mota = Mota;
+        TrangThai = 1;
+    }
 
     public int getMaLoai() {
         return maLoai;
